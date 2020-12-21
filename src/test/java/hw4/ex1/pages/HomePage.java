@@ -132,6 +132,6 @@ public class HomePage extends AbstractPage {
         List<String> texts = elementsLeft
                 .stream().map(WebElement::getText).collect(Collectors.toList());
         softAssertion.assertEquals(texts, Arrays.asList("Home\n" + "Contact form\n" + "Service\n"
-                + "Metals & Colors\n" + "Elements packs"));
+                + "Metals & Colors\n" + "Elements packs" + "This is a mistake"));
         }
 }
