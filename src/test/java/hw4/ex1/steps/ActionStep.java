@@ -11,5 +11,20 @@ public class ActionStep extends AbstractStep {
         super(driver, softAssertion, wait);
     }
 
+    //STEP #10: Switch to original window back
+    //DATA: -
+    //EXPECTED RESULT: Driver has focus on the original window
+    @Step("STEP #10: Switch to original window back")
+    public void switchHomePage() {
+        homePage.switchHomePage();
+    }
 
+    //STEP #11: Assert that there are 5 items in the Left Section
+    //          are displayed and they have proper text
+    //DATA:  “Home”, “Contact form”, “Service”, “Metals & Colors”, “Elements packs”
+    //EXPECTED RESULT: Left section menu items are displayed and have proper text
+    @Step("STEP #11: Assert that there are 5 items in the Left Section")
+    public void assertLeftSectionItems() {
+        homePage.assertLeftSectionItems();
+    }
 }

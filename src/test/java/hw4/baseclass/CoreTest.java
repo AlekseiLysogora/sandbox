@@ -1,5 +1,7 @@
 package hw4.baseclass;
 
+import hw4.ex1.steps.ActionStep;
+import hw4.ex1.steps.AssertionStep;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
@@ -13,6 +15,8 @@ public abstract class CoreTest {
     public SoftAssert softAssertion;
     public WebDriverWait wait;
     public BaseClass commonSteps;
+    public ActionStep actionStep;
+    public AssertionStep assertionStep;
 
     @BeforeMethod(alwaysRun = true)
     public void browserSetup(ITestContext testContext) {
@@ -20,6 +24,10 @@ public abstract class CoreTest {
         wait = new WebDriverWait(driver, 5);
         softAssertion = new SoftAssert();
         commonSteps = new BaseClass(driver, softAssertion, wait);
+        //перенсти в Before
+        wait = new WebDriverWait(driver, 5);
+        actionStep = new ActionStep(driver, softAssertion, wait);
+        assertionStep = new AssertionStep(driver, softAssertion, wait);
         testContext.setAttribute("driver", driver);
     }
 
