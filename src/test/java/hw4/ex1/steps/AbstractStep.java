@@ -12,9 +12,6 @@ public class AbstractStep {
     BaseClass baseClass;
     HomePage homePage;
 
-    protected AbstractStep(WebDriver driver) {
-    }
-
     protected AbstractStep(WebDriver driver, SoftAssert softAssertion, WebDriverWait wait) {
         homePage = new HomePage(driver, softAssertion);
         baseClass = new BaseClass(driver, softAssertion, wait);

@@ -17,6 +17,7 @@ public class FirstExerciseRunTest extends CoreTest {
     private FramePage framePage;
     private ActionStep actionStep;
     private AssertionStep assertionStep;
+    private WebDriverWait wait;
 
     @Test(
             description = "First exercise test, Homework-4. Jira binding cab be here"
@@ -26,8 +27,9 @@ public class FirstExerciseRunTest extends CoreTest {
         framePage = new FramePage(driver, softAssertion);
 
         //перенсти в Before
-        actionStep = new ActionStep(driver, softAssertion, new WebDriverWait(driver, 5));
-        assertionStep = new AssertionStep(driver);
+        wait = new WebDriverWait(driver, 5);
+        actionStep = new ActionStep(driver, softAssertion, wait);
+        assertionStep = new AssertionStep(driver, softAssertion, wait);
 
         //STEP #1: Open test site by URL
         actionStep.openTestSite();

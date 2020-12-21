@@ -3,13 +3,14 @@ package hw4.ex1.steps;
 import hw4.baseclass.BaseClass;
 import org.openqa.selenium.WebDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 public class AssertionStep extends AbstractStep {
 
-    BaseClass baseClass;
 
-    public AssertionStep(WebDriver driver) {
-        super(driver);
+    public AssertionStep(WebDriver driver, SoftAssert softAssertion, WebDriverWait wait) {
+        super(driver, softAssertion, wait);
     }
 
     //STEP #2: Assert Browser title
