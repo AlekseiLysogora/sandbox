@@ -9,47 +9,47 @@ import org.testng.annotations.Test;
 public class FirstExerciseRunTest extends CoreTest {
 
     @Test(
-            description = "First exercise test, Homework-4."
+            description = "First exercise, Homework-4."
     )
     public void exercise_1_Test() {
+
         //STEP #1: Open test site by URL
-        actionStep.openTestSite();
+        commonActionStep.openTestSite();
 
         //STEP #2: Assert Browser title
-        assertionStep.assertBrowserTitle();
+        commonAssertSteps.assertBrowserTitle();
 
         //STEP #3: Perform login
-        actionStep.performLogin();
+        commonActionStep.performLogin();
 
         //STEP #4: Assert Username is logged
-        assertionStep.assertUserName();
+        commonAssertSteps.assertUserName();
 
         //STEP #5: Assert that there are 4 items on the header section
         //         are displayed and they have proper texts
-        assertionStep.assertHeaderItemsOnHomePage();
+        firstExeFirstExerciseAssertionStep.assertHeaderItemsOnHomePage();
 
         //STEP #6: Assert that there are 4 images on the Index Page and they are displayed
-        assertionStep.assertImagesOnHomePage();
+        firstExeFirstExerciseAssertionStep.assertImagesOnHomePage();
 
         //STEP #7: Assert that there are 4 texts on the Index Page
         //         under icons and they have proper text
-        assertionStep.assertTextOnHomePage();
+        firstExeFirstExerciseAssertionStep.assertTextOnHomePage();
 
         //STEP #8: Assert that there is the iframe with “Frame Button” exist
-        assertionStep.iframeWithButtonExists();
+        firstExeFirstExerciseAssertionStep.iframeWithButtonExists();
 
         //STEP #9: Switch to the iframe and check that there is “Frame Button” in the iframe
-        assertionStep.frameButtonExists();
+        firstExeFirstExerciseAssertionStep.frameButtonExists();
 
         //STEP #10: Switch to original window back
-        actionStep.switchHomePage();
+        firstExeFirstExerciseActionStep.switchHomePage();
         //homePage.switchHomePage();
 
         //STEP #11: Assert that there are 5 items in the Left Section
         //          are displayed and they have proper text
-        actionStep.assertLeftSectionItems();
-        //homePage.assertLeftSectionItems();
+        firstExeFirstExerciseActionStep.assertLeftSectionItems();
 
-        commonSteps.assertAll();
+        commonAssertSteps.assertAll();
     }
 }

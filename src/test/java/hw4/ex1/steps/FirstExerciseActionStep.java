@@ -1,14 +1,16 @@
 package hw4.ex1.steps;
 
+import hw4.ex1.pages.HomePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 import io.qameta.allure.Step;
 
-public class ActionStep extends AbstractStep {
+public class FirstExerciseActionStep {
 
-    public ActionStep(WebDriver driver, SoftAssert softAssertion, WebDriverWait wait) {
-        super(driver, softAssertion, wait);
+    HomePage homePage;
+
+    public FirstExerciseActionStep(WebDriver driver, SoftAssert softAssertion) {
+        homePage = new HomePage(driver, softAssertion);
     }
 
     //STEP #10: Switch to original window back
