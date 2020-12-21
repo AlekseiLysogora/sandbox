@@ -22,37 +22,6 @@
 
     <profiles>
         <profile>
-            <id>CalculatorForRunAllOperations</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>${project.basedir}/src/test/resources/hw1/CalculatorForRunAllOperations.xml</suite.file>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>CalculatorForSumAndSubtractionOperations</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>${project.basedir}/src/test/resources/hw1/CalculatorForSumAndSubtractionOperations.xml</suite.file>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>CalculatorForDivisionAndMultiplyOperations</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-
-            </activation>
-            <properties>
-                <suite.file>${project.basedir}/src/test/resources/hw1/CalculatorForDivisionAndMultiplyOperations.xml</suite.file>
-            </properties>
-        </profile>
-
-        <profile>
             <id>hw2</id>
             <activation>
                 <!--                activeByDefault is false by default, so this line can be omitted-->
@@ -72,6 +41,9 @@
 
         <profile>
             <id>hw4</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <suite.file>${project.basedir}/src/test/resources/hw4/suite/SuiteHW4.xml</suite.file>
             </properties>
