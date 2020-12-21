@@ -1,12 +1,18 @@
 package hw4.ex2.runtest;
 
+import hw4.baseclass.AllureListener;
 import hw4.baseclass.CoreTest;
+import hw4.ex1.steps.ActionStep;
 import hw4.ex2.pages.DifferentElementsPage;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({AllureListener.class})
 public class SecondExerciseRunTest extends CoreTest {
 
     private DifferentElementsPage differentElementsPage;
+    private ActionStep actionStep;
 
     @Test(
             description = "Second exercise test, Homework-4. Jira binding cab be here"
@@ -14,8 +20,12 @@ public class SecondExerciseRunTest extends CoreTest {
     public void exercise_2_Test() {
         differentElementsPage = new DifferentElementsPage(driver, softAssertion);
 
+        //перенсти в Before
+        actionStep = new ActionStep(driver, softAssertion, new WebDriverWait(driver, 5));
+
         //STEP #1: Open test site by URL
-        commonSteps.openPage();
+        actionStep.openTestSite();
+        //commonSteps.openPage();
 
         //STEP #2: Assert Browser title
         commonSteps.checkTitle();

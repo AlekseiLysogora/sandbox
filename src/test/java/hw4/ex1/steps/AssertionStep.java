@@ -1,22 +1,30 @@
 package hw4.ex1.steps;
 
+import hw4.baseclass.BaseClass;
 import org.openqa.selenium.WebDriver;
+import io.qameta.allure.Step;
 
 public class AssertionStep extends AbstractStep {
+
+    BaseClass baseClass;
 
     public AssertionStep(WebDriver driver) {
         super(driver);
     }
 
-    /*@Step("Проверка что текст поиска присутствует в названии товара")
-    public void searchTextShouldBeExistInResults(String expectedText) {
-        List<String> productNames = yandexMarketCatalogItemPage.getProductNames();
+    //STEP #2: Assert Browser title
+    //DATA: "Home Page"
+    //EXPECTED RESULT: Browser title equals "Home Page"
+    @Step("STEP #2: Assert Browser title")
+    public void assertBrowserTitle() {
+        baseClass.checkTitle();
+    }
 
-        SoftAssertions softAssertions = new SoftAssertions();
-        productNames.forEach(productName ->
-                softAssertions.assertThat(productName)
-                        .as("Проверка что поисковый текст присутствует в заголовке продукта")
-                        .contains(expectedText));
-        softAssertions.assertAll();
-    }*/
+    //STEP #4: Assert Username is logged
+    //DATA: "ROMAN IOVLEV"
+    //EXPECTED RESULT: Name is displayed and equals to expected result
+    @Step("STEP #4: Assert Username is logged")
+    public void assertUserName() {
+        baseClass.assertUserName();
+    }
 }

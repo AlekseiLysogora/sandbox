@@ -5,6 +5,7 @@ import hw4.baseclass.CoreTest;
 import hw4.ex1.pages.FramePage;
 import hw4.ex1.pages.HomePage;
 import hw4.ex1.steps.ActionStep;
+import hw4.ex1.steps.AssertionStep;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -15,6 +16,7 @@ public class FirstExerciseRunTest extends CoreTest {
     private HomePage homePage;
     private FramePage framePage;
     private ActionStep actionStep;
+    private AssertionStep assertionStep;
 
     @Test(
             description = "First exercise test, Homework-4. Jira binding cab be here"
@@ -25,19 +27,23 @@ public class FirstExerciseRunTest extends CoreTest {
 
         //перенсти в Before
         actionStep = new ActionStep(driver, softAssertion, new WebDriverWait(driver, 5));
+        assertionStep = new AssertionStep(driver);
 
         //STEP #1: Open test site by URL
-        actionStep.openIndexPage();
+        actionStep.openTestSite();
         //commonSteps.openPage();
 
         //STEP #2: Assert Browser title
-        commonSteps.checkTitle();
+        assertionStep.assertBrowserTitle();
+        //commonSteps.checkTitle();
 
         //STEP #3: Perform login
-        commonSteps.login();
+        actionStep.performLogin();
+        //commonSteps.login();
 
         //STEP #4: Assert Username is logged
-        commonSteps.assertUserName();
+        assertionStep.assertUserName();
+        //commonSteps.assertUserName();
 
         //STEP #5: Assert that there are 4 items on the header section
         //         are displayed and they have proper texts

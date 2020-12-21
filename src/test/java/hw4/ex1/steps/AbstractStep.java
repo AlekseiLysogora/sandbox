@@ -20,8 +20,20 @@ public class AbstractStep {
         baseClass = new BaseClass(driver, softAssertion, wait);
     }
 
-    @Step("Открыть домашнюю страницу")
-    public void openIndexPage() {
+    //STEP #1: Open test site by URL
+    //DATA: https://jdi-testing.github.io/jdi-light/index.html
+    //EXPECTED RESULT: Test site is opened
+    @Step("STEP #1: Open test site by URL")
+    public void openTestSite() {
         baseClass.openPage();
     }
+
+    //STEP #3: Perform login
+    //DATA: username: Roman, pass: Jdi1234
+    //EXPECTED RESULT: User is logged
+    @Step("STEP #3: Perform login")
+    public void performLogin() {
+        baseClass.login();
+    }
+
 }
