@@ -48,7 +48,8 @@ public class AssertionStep extends AbstractStep {
     //STEP #7: Assert that there are 4 texts on the Index Page under icons and they have proper text
     //DATA: 4 texts below of each image
     //EXPECTED RESULT: Texts are displayed and equal to expected
-    @Step("STEP #7: Assert that there are 4 texts on the Index Page under icons and they have proper text")
+    @Step("STEP #7: Assert that there are 4 texts on the Index"
+            + "Page under icons and they have proper text")
     public void assertTextOnHomePage() {
         homePage.assertText();
     }
