@@ -18,9 +18,9 @@ public class FramePage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    //     * STEP #9: Switch to the iframe and check that there is “Frame Button” in the iframe
-    //     * DATA: -
-    //     * EXPECTED RESULT: The “Frame Button” exists
+    //STEP #9: Switch to the iframe and check that there is “Frame Button” in the iframe
+    //DATA: -
+    //EXPECTED RESULT: The “Frame Button” exists
     public void frameButtonExists() {
         driver.switchTo().frame(iframe);
         String actual = iframeBtn.getAttribute("value");

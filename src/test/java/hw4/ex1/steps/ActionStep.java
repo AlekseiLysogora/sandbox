@@ -11,8 +11,5 @@ public class ActionStep extends AbstractStep {
         super(driver, softAssertion, wait);
     }
 
-    @Step("Открыть категорию ")
-    public void openCategoryAndSubCategoryYandexMarket() {
-        homePage.assertHeaderItems();
-    }
+
 }
