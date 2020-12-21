@@ -24,8 +24,6 @@ public abstract class CoreTest {
         wait = new WebDriverWait(driver, 5);
         softAssertion = new SoftAssert();
         commonSteps = new BaseClass(driver, softAssertion, wait);
-        //перенсти в Before
-        wait = new WebDriverWait(driver, 5);
         actionStep = new ActionStep(driver, softAssertion, wait);
         assertionStep = new AssertionStep(driver, softAssertion, wait);
         testContext.setAttribute("driver", driver);
