@@ -10,6 +10,7 @@ import hw4.ex2.steps.SecondExerciseActionStep;
 import hw4.ex2.steps.SecondExerciseAssertionStep;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -36,7 +37,7 @@ public abstract class CoreTest {
     protected CommonAssertSteps commonAssertSteps;
 
     @BeforeMethod(alwaysRun = true)
-    public void browserSetup() {
+    public void browserSetup(ITestContext testContext) {
         driver =  new DriverManager().setupDriver();
         wait = new WebDriverWait(driver, 5);
         softAssertion = new SoftAssert();
@@ -53,6 +54,7 @@ public abstract class CoreTest {
 
         secondExerciseActionStep = new SecondExerciseActionStep(driver);
         secondExerciseAssertionStep = new SecondExerciseAssertionStep(driver, softAssertion);
+        testContext.setAttribute("driver", driver);
     }
 
     @AfterMethod(alwaysRun = true)

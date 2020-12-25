@@ -39,8 +39,8 @@ public class FirstExerciseRunTest extends CoreTest {
         //STEP #7: Assert that there are 4 texts on the Index Page
         //         under icons and they have proper text
         firstExerciseAssertionStep.assertTextOnHomePage(
-                expectedMicroscope, expectedHeadphones,
-                expectedMonitor, expectedRocket);
+                expectedMicroscope, expectedHeadphones, expectedMonitor, expectedRocket
+        );
 
         //STEP #8: Assert that there is the iframe with “Frame Button” exist
         firstExerciseAssertionStep.iframeWithButtonExists();
