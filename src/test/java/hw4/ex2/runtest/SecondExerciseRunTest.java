@@ -1,11 +1,12 @@
 package hw4.ex2.runtest;
 
-import hw4.baseclass.AllureListener;
 import hw4.baseclass.CoreTest;
-import org.testng.annotations.Listeners;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
-@Listeners({AllureListener.class})
+@Feature("Selenium")
+@Story("Homework #4")
 public class SecondExerciseRunTest extends CoreTest {
 
     @Test(
