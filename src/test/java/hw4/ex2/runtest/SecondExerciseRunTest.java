@@ -41,6 +41,6 @@ public class SecondExerciseRunTest extends CoreTest {
         //STEP #9: Assert that each element corresponds to itself with positive status
         secondExerciseAssertionStep.assertActions();
 
-        commonAssertSteps.assertAll();
+        commonAssertSteps.checkAll();
     }
 }

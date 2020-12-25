@@ -44,7 +44,7 @@ public class CommonAssertSteps {
                 "Incorrect username");
     }
 
-    public void assertAll() {
+    public void checkAll() {
         softAssertion.assertAll();
     }
 }

@@ -55,6 +55,6 @@ public class FirstExerciseRunTest extends CoreTest {
         //          are displayed and they have proper text
         firstExerciseAssertionStep.assertLeftSectionItems();
 
-        commonAssertSteps.assertAll();
+        commonAssertSteps.checkAll();
     }
 }
