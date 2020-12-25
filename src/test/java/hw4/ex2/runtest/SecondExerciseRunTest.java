@@ -9,10 +9,9 @@ import org.testng.annotations.Test;
 public class SecondExerciseRunTest extends CoreTest {
 
     @Test(
-            description = "Second exercise, Homework-4."
+            description = "Second exercise test, Jira binding cab be here"
     )
     public void exercise_2_Test() {
-
         //STEP #1: Open test site by URL
         commonActionStep.openTestSite();
 
@@ -26,19 +25,20 @@ public class SecondExerciseRunTest extends CoreTest {
         commonAssertSteps.assertUserName();
 
         //STEP #5: Open through the header menu Service -> Different Elements Page
-        secondExeActionStep.openPage();
+        secondExerciseActionStep.openPage();
+        secondExerciseAssertionStep.assertTitle();
 
         //STEP #6: Select checkboxes
-        secondExeActionStep.selectCheckboxes();
+        secondExerciseActionStep.selectCheckboxes();
 
         //STEP #7: Select radio
-        secondExeActionStep.selectRadio();
+        secondExerciseActionStep.selectRadio();
 
         //STEP #8: Select in dropdown
-        secondExeActionStep.selectInDropdown();
+        secondExerciseActionStep.selectInDropdown();
 
         //STEP #9: Assert that each element corresponds to itself with positive status
-        secondExeAssertionStep.assertActions();
+        secondExerciseAssertionStep.assertActions();
 
         commonAssertSteps.assertAll();
     }

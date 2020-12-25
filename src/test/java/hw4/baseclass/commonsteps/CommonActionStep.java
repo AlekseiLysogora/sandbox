@@ -4,14 +4,13 @@ import hw4.baseclass.BaseClass;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
 
 public class CommonActionStep {
 
     BaseClass baseClass;
 
-    public CommonActionStep(WebDriver driver, SoftAssert softAssertion, WebDriverWait wait) {
-        baseClass = new BaseClass(driver, softAssertion, wait);
+    public CommonActionStep(WebDriver driver, WebDriverWait wait) {
+        baseClass = new BaseClass(driver, wait);
     }
 
     //STEP #1: Open test site by URL

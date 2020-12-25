@@ -2,6 +2,7 @@ package hw4.ex1.runtest;
 
 import hw4.baseclass.AllureListener;
 import hw4.baseclass.CoreTest;
+import hw4.baseclass.dataprovider.AssertDataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -9,10 +10,12 @@ import org.testng.annotations.Test;
 public class FirstExerciseRunTest extends CoreTest {
 
     @Test(
-            description = "First exercise, Homework-4."
+            description = "First exercise test, Jira binding cab be here",
+            dataProvider = "assertTextDataSet",
+            dataProviderClass = AssertDataProvider.class
     )
-    public void exercise_1_Test() {
-
+    public void exercise_1_Test(String expectedMicroscope, String expectedHeadphones,
+                                String expectedMonitor, String expectedRocket) {
         //STEP #1: Open test site by URL
         commonActionStep.openTestSite();
 
@@ -27,28 +30,29 @@ public class FirstExerciseRunTest extends CoreTest {
 
         //STEP #5: Assert that there are 4 items on the header section
         //         are displayed and they have proper texts
-        firstExeFirstExerciseAssertionStep.assertHeaderItemsOnHomePage();
+        firstExerciseAssertionStep.assertHeaderItemsOnHomePage();
 
         //STEP #6: Assert that there are 4 images on the Index Page and they are displayed
-        firstExeFirstExerciseAssertionStep.assertImagesOnHomePage();
+        firstExerciseAssertionStep.assertImagesOnHomePage();
 
         //STEP #7: Assert that there are 4 texts on the Index Page
         //         under icons and they have proper text
-        firstExeFirstExerciseAssertionStep.assertTextOnHomePage();
+        firstExerciseAssertionStep.assertTextOnHomePage(
+                expectedMicroscope, expectedHeadphones,
+                expectedMonitor, expectedRocket);
 
         //STEP #8: Assert that there is the iframe with “Frame Button” exist
-        firstExeFirstExerciseAssertionStep.iframeWithButtonExists();
+        firstExerciseAssertionStep.iframeWithButtonExists();
 
         //STEP #9: Switch to the iframe and check that there is “Frame Button” in the iframe
-        firstExeFirstExerciseAssertionStep.frameButtonExists();
+        firstExerciseAssertionStep.frameButtonExists();
 
         //STEP #10: Switch to original window back
-        firstExeFirstExerciseActionStep.switchHomePage();
-        //homePage.switchHomePage();
+        firstExerciseActionStep.switchHomePage();
 
         //STEP #11: Assert that there are 5 items in the Left Section
         //          are displayed and they have proper text
-        firstExeFirstExerciseActionStep.assertLeftSectionItems();
+        firstExerciseAssertionStep.assertLeftSectionItems();
 
         commonAssertSteps.assertAll();
     }

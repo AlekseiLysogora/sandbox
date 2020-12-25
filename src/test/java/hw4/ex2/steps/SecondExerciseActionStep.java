@@ -2,15 +2,14 @@ package hw4.ex2.steps;
 
 import hw4.ex2.pages.DifferentElementsPage;
 import org.openqa.selenium.WebDriver;
-import org.testng.asserts.SoftAssert;
 import io.qameta.allure.Step;
 
 public class SecondExerciseActionStep {
 
     DifferentElementsPage differentElementsPage;
 
-    public SecondExerciseActionStep(WebDriver driver, SoftAssert softAssertion) {
-        differentElementsPage = new DifferentElementsPage(driver, softAssertion);
+    public SecondExerciseActionStep(WebDriver driver) {
+        differentElementsPage = new DifferentElementsPage(driver);
     }
 
     //STEP #5: Open through the header menu Service -> Different Elements Page
@@ -19,7 +18,6 @@ public class SecondExerciseActionStep {
     @Step("STEP #5: Open through the header menu Service -> Different Elements Page")
     public void openPage() {
         differentElementsPage.openPage();
-        differentElementsPage.checkTitle();
     }
 
     //STEP #6: Select checkboxes

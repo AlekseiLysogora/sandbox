@@ -28,14 +28,14 @@
                 <!--                <activeByDefault>false</activeByDefault>-->
             </activation>
             <properties>
-                <suite.file>${project.basedir}/src/test/resources/hw2/suite/SuiteHW2.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/hw2/suite/SuiteHW2.xml</suite.file>
             </properties>
         </profile>
 
         <profile>
             <id>hw3</id>
             <properties>
-                <suite.file>${project.basedir}/src/test/resources/hw3/suite/SuiteHW3.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/hw3/suite/SuiteHW3.xml</suite.file>
             </properties>
         </profile>
 
@@ -45,7 +45,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>${project.basedir}/src/test/resources/hw4/suite/SuiteHW4.xml</suite.file>
+                <suite.file>${project.build.testOutputDirectory}/hw4/suite/SuiteHW4.xml</suite.file>
             </properties>
         </profile>
     </profiles>
