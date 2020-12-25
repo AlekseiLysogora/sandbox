@@ -96,9 +96,9 @@ public class FirstExerciseAssertionStep {
     //EXPECTED RESULT: The iframe exists
     @Step("STEP #8: Assert that there is the iframe with “Frame Button” exist")
     public void iframeWithButtonExists() {
-
-        softAssertion.assertEquals(homePage.getIframe().getText(),
-                "<p>Your browser does not support iframes.</p>",
+        String expected = getExerciseDataProperties
+                .getResource("iframeWithButtonExists");
+        softAssertion.assertEquals(homePage.getIframe().getText(), expected,
                 "The iframe with “Frame Button” isn't exist");
     }
 
@@ -118,9 +118,10 @@ public class FirstExerciseAssertionStep {
     //DATA:  “Home”, “Contact form”, “Service”, “Metals & Colors”, “Elements packs”
     //EXPECTED RESULT: Left section menu items are displayed and have proper text
     public void assertLeftSectionItems() {
+        String expected = getExerciseDataProperties
+                .getResource("assertLeftSectionItems");
         List<String> texts = homePage.getElementsLeft()
                 .stream().map(WebElement::getText).collect(Collectors.toList());
-        softAssertion.assertEquals(texts, Arrays.asList("Home\n" + "Contact form\n" + "Service\n"
-                + "Metals & Colors\n" + "Elements packs"));
+        softAssertion.assertEquals(texts, Arrays.asList(expected));
     }
 }
