@@ -38,7 +38,7 @@ public abstract class CoreTest {
 
     @BeforeMethod(alwaysRun = true)
     public void browserSetup(ITestContext testContext) {
-        driver =  new DriverManager().setupDriver();
+        driver =  DriverManager.setupDriver();
         wait = new WebDriverWait(driver, 5);
         softAssertion = new SoftAssert();
         commonSteps = new BaseClass(driver, wait);
