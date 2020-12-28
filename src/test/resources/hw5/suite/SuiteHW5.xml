@@ -1,15 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="hw5">
 
-    <test name="exercise_1">
+    <test name="Selenium">
         <classes>
-            <class name="hw5.ex1.runtest.RunCucumberTestNGTest"/>
+            <class name="hw5.runtest.RunCucumberTestNGTest"/>
         </classes>
     </test>
-
-    <!--    <test name="exercise_2">-->
-    <!--        <classes>-->
-    <!--            <class name="hw5.ex2.runtest.SecondExerciseRunTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
 </suite>
