@@ -9,14 +9,21 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <testng.version>7.3.0</testng.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>3.141.59</selenium.version>
-        <webdrivermanager.version>4.2.2</webdrivermanager.version>
 
+        <!-- dependency versions -->
+        <testng.version>7.3.0</testng.version>
+        <webdrivermanager.version>4.2.2</webdrivermanager.version>
+        <selenium.version>3.141.59</selenium.version>
+        <assertj-core.version>3.17.2</assertj-core.version>
         <aspectj.version>1.8.10</aspectj.version>
         <allure.version>2.13.7</allure.version>
-        <assertj-core.version>3.17.2</assertj-core.version>
+        <cucumber.version>6.9.1</cucumber.version>
+
+        <!-- plugin versions -->
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <allure-maven.version>2.10.0</allure-maven.version>
     </properties>
 
@@ -42,10 +49,20 @@
         <profile>
             <id>hw4</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>${project.build.testOutputDirectory}/hw4/suite/SuiteHW4.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw5</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>${project.build.testOutputDirectory}/hw5/suite/SuiteHW5.xml</suite.file>
             </properties>
         </profile>
     </profiles>
@@ -90,6 +107,25 @@
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber6-jvm</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -98,7 +134,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>${maven-checkstyle-plugin.version}</version>
                 <configuration>
                     <configLocation>
                         https://raw.githubusercontent.com/shoggy/epam-ru-pet-ta-2020-notes/master/checkstyle_config.xml
@@ -122,7 +158,7 @@
             <plugin> <!--Плагин для исправления версии Java-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -133,10 +169,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${maven-surefire-plugin.version}</version>
+
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${suite.file}</suiteXmlFile>
+<!--                        <suiteXmlFile>${suite.file}</suiteXmlFile>-->
+                        <suiteXmlFile>
+                            ${project.basedir}/src/test/resources/hw5/suite/SuiteHW5.xml
+                        </suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -145,6 +185,7 @@
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
+
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
@@ -152,6 +193,7 @@
                         <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
+
             </plugin>
 
             <plugin>
@@ -160,11 +202,13 @@
                 <version>${allure-maven.version}</version>
             </plugin>
         </plugins>
+
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
                 <filtering>true</filtering>
             </testResource>
         </testResources>
+
     </build>
 </project>
