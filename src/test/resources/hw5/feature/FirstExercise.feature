@@ -2,9 +2,9 @@ Feature: Selenium
 
   Background:
     Given I open JDI GitHub site
-    Then Check that I'm on certain site
+    Then Browser title should be 'Home Page'
     When I login as user 'Roman Iovlev' with password 'Jdi1234'
-    Then Check that I'm logged as user
+    Then User name should be displayed and equals to expected result
     When I click on 'Service' button in Header
 
   Scenario: Exercise 1
@@ -15,7 +15,7 @@ Feature: Selenium
     Then Each element should be corresponds to itself with positive status on Different Elements Page
 
 #  Scenario Outline: Exercise 2
-#    When I click on "User Table" button in Service dropdown
+#    And I click on "User Table" button in Service dropdown
 #    Then "User Table" page should be opened
 #    And 6 Number Type Dropdowns should be displayed on Users Table on User Table Page
 #    And 6 Usernames should be displayed on Users Table on User Table Page
@@ -31,14 +31,13 @@ Feature: Selenium
 #      | 4      | Helen Bennett    | Captain America some description |
 #      | 5      | Yoshi Tannamuri  | Cyclope some description         |
 #      | 6      | Giovanni Rovelli | Hulksome description             |
-#
-#    And Droplist should contain values in column Type for user Roman
+#    And droplist should contain values in column Type for user Roman
 #      | Dropdown Values |
 #      | Admin           |
 #      | User            |
 #      | Manager         |
-
-  Scenario: Exercise 3
-    And I click on 'User Table' in Service dropdown
-    When I select 'vip' checkbox for 'Sergey Ivan'
-    Then 1 log row has 'Vip: condition changed to true' text in log section
+#
+#  Scenario: Exercise 3
+#    And I click on "User Table" button in Service dropdown
+#    When I select 'vip' checkbox for "Sergey Ivan"
+#    Then 1 log row has "Vip: condition changed to true" text in log section

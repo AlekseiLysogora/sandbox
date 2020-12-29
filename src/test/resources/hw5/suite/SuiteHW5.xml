@@ -3,7 +3,7 @@
 
     <test name="Selenium">
         <classes>
-            <class name="hw5.runtest.RunCucumberTestNGTest"/>
+            <class name="hw5.runtest.RunTest"/>
         </classes>
     </test>
 </suite>
