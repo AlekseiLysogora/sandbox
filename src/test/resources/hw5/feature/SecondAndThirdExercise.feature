@@ -7,8 +7,8 @@ Feature: Selenium
     Then User name should be displayed and equals to expected result
 
   Scenario Outline: Exercise 2
-    And I click on "User Table" button in Service dropdown
-    Then "User Table" page should be opened
+    And I click on 'User Table' button in Service dropdown
+    Then 'User Table' page should be opened
     And 6 '<Number>' Type Dropdowns should be displayed on Users Table on User Table Page
     And 6 '<User>'names should be displayed on Users Table on User Table Page
     And 6 '<Description>' texts under images should be displayed on Users Table on User Table Page
