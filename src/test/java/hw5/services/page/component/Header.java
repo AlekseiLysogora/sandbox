@@ -1,31 +1,39 @@
 package hw5.services.page.component;
 
 import hw5.services.page.AbstractPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import java.util.List;
-import java.util.Optional;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Header extends AbstractPage {
 
-    @FindBy(className = "uui-navigation nav navbar-nav m-l8")
-    private List<WebElement> serviceItems;
+    @FindBy(className = "dropdown-toggle")
+    private WebElement serviceBtn;
 
-    public Header(WebDriver driver) {
+    @FindBy(xpath = "//a[text()='Different elements']")
+    private WebElement difElem;
+
+    @FindBy(xpath = "//a[text()='User Table ']")
+    private WebElement userTable;
+
+    public Header(WebDriver driver, String dropdown) {
         super(driver);
-    }
-
-//    WebElement webElement = serviceItems.get(0);
-
-    public void selectHeaderButton(String itemName) {
-        //System.out.println(webElement.getText());
-
-//        Optional<WebElement> category = serviceItems
-//                .stream()
-//                .filter(categoryItem -> categoryItem.getText().equalsIgnoreCase(itemName))
-//                .findFirst();
-//
-//        category.ifPresent(WebElement::click);
+        serviceBtn.click();
+        switch (dropdown) {
+            case "Different Elements":
+                difElem.click();
+                break;
+            case "User Table":
+                userTable.click();
+                break;
+            default:
+                System.err.println(
+                        "\nATTENTION: Your text input in Gherkin steps (PAGE NAME)"
+                        + " doesn't match to proper condition."
+                );
+                break;
+        }
     }
 }
