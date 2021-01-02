@@ -25,8 +25,8 @@ public class WhenGherkin extends AbstractGherkin {
     }
 
     @When("I select {string} radiobutton")
-    public void selectRadioBtn(String firstRadioBtn) {
-        differentElementsPage.selectRadioBtn(firstRadioBtn);
+    public void selectRadioBtn(String radioBtn) {
+        differentElementsPage.selectRadioBtn(radioBtn);
     }
 
     @When("I select {string} in dropdown")

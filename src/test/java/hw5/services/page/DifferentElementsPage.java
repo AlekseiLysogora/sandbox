@@ -11,11 +11,6 @@ public class DifferentElementsPage extends AbstractPage {
     @FindBy(css = ".dropdown-menu > li:nth-child(8) > a")
     protected WebElement differentElements;
 
-    @FindBy(xpath = "//input[@type='checkbox']")
-    protected WebElement water;
-    @FindBy(xpath = "//label[3]/input")
-    protected WebElement wind;
-
     @FindBy(xpath = "//div[3]/label[4]/input")
     protected WebElement selen;
 
@@ -31,8 +26,11 @@ public class DifferentElementsPage extends AbstractPage {
     @FindBy(xpath = "//li[contains(text(),'Color')]")
     private WebElement assertDropdown;
 
-    @FindBy(xpath = "/html/body/div/div[2]/main/div[2]/div/div[2]")
-    private List<WebElement> checkBoxSet;
+    @FindBy(className = "label-checkbox")
+    private List<WebElement> checkBoxList;
+
+    @FindBy(className = "label-radio")
+    private List<WebElement> radioBtnList;
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
@@ -43,21 +41,19 @@ public class DifferentElementsPage extends AbstractPage {
     }
 
     public void selectCheckboxes(String firstCheckBox, String secondCheckbox) {
-//        Optional<WebElement> waterL = checkBoxSet
-//                .stream()
-//                .filter(t -> t.getText().equals(firstCheckBox))
-//                .findFirst();
-//        waterL.ifPresent(WebElement::click);
-
-//        checkBoxSet.stream().map(WebElement::getText).collect(Collectors.toList()).get(0);
-
-        water.click();
-        wind.click();
-
+        if (checkBoxList.get(0).getText().equals(firstCheckBox) &&
+        checkBoxList.get(2).getText().equals(secondCheckbox)) {
+            checkBoxList.get(0).click();
+            checkBoxList.get(2).click();
+        } else
+            System.out.println("You selected the incorrect checkboxes");
     }
 
-    public void selectRadioBtn(String firstRadioBtn) {
-        selen.click();
+    public void selectRadioBtn(String radioBtn) {
+        if (radioBtnList.get(3).getText().equals(radioBtn)) {
+            radioBtnList.get(3).click();
+        } else
+            System.out.println("You selected the incorrect radio button");
     }
 
     public void selectInDropdown(String colorType) {
