@@ -1,30 +1,26 @@
 package hw5.services.page;
 
+import hw5.services.page.component.CheckBox;
+import hw5.services.page.component.Dropdown;
+import hw5.services.page.component.RadioButton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class DifferentElementsPage extends AbstractPage {
 
     @FindBy(css = ".dropdown-menu > li:nth-child(8) > a")
     protected WebElement differentElements;
 
-    @FindBy(xpath = "//div[3]/label[4]/input")
-    protected WebElement selen;
-
     @FindBy(xpath = "//select")
     protected WebElement dropdown;
 
-    @FindBy(xpath = "//li[contains(text(),'Water: condition changed to true')]")
-    private WebElement assertCheckBoxWater;
-    @FindBy(xpath = "//li[contains(text(),'Wind: condition changed to true')]")
-    private WebElement assertCheckBoxWind;
-    @FindBy(xpath = "//li[contains(text(),'Selen')]")
-    private WebElement assertRadioBtn;
-    @FindBy(xpath = "//li[contains(text(),'Color')]")
-    private WebElement assertDropdown;
+    @FindBy(className = "info-panel-section")
+    private List<WebElement> assertLogRow;
 
     @FindBy(className = "label-checkbox")
     private List<WebElement> checkBoxList;
@@ -40,42 +36,38 @@ public class DifferentElementsPage extends AbstractPage {
         differentElements.click();
     }
 
-    public void selectCheckboxes(String firstCheckBox, String secondCheckbox) {
-        if (checkBoxList.get(0).getText().equals(firstCheckBox) &&
-        checkBoxList.get(2).getText().equals(secondCheckbox)) {
-            checkBoxList.get(0).click();
-            checkBoxList.get(2).click();
-        } else
-            System.out.println("You selected the incorrect checkboxes");
+    public void selectCheckboxes(String firstCheckBox, String secondCheckBox) {
+        CheckBox.getInstance(firstCheckBox, secondCheckBox);
+
+        for (WebElement firstCheckbox: checkBoxList) {
+            if (firstCheckbox.getText().equals(CheckBox.getFirstCheckbox())) {
+                firstCheckbox.click();
+            }
+        }
+        Optional<WebElement> radio = checkBoxList
+                .stream()
+                .filter(t -> t.getText().equals(CheckBox.getSecondCheckbox()))
+                .findFirst();
+        radio.ifPresent(WebElement::click);
     }
 
     public void selectRadioBtn(String radioBtn) {
-        if (radioBtnList.get(3).getText().equals(radioBtn)) {
-            radioBtnList.get(3).click();
-        } else
-            System.out.println("You selected the incorrect radio button");
+        RadioButton.getInstance(radioBtn);
+        for (WebElement radBtn: radioBtnList) {
+            if (radBtn.getText().equals(RadioButton.getName())) {
+                radBtn.click();
+            }
+        }
     }
 
     public void selectInDropdown(String colorType) {
+        Dropdown.getInstance(colorType);
         dropdown.click();
         Select color = new Select(dropdown);
-        String selectColor = colorType;
-        color.selectByVisibleText(selectColor);
+        color.selectByVisibleText(Dropdown.getColor());
     }
 
-    public WebElement getAssertCheckBoxWater() {
-        return assertCheckBoxWater;
-    }
-
-    public WebElement getAssertCheckBoxWind() {
-        return assertCheckBoxWind;
-    }
-
-    public WebElement getAssertRadioBtn() {
-        return assertRadioBtn;
-    }
-
-    public WebElement getAssertDropdown() {
-        return assertDropdown;
+    public String getAssertLogRow() {
+        return assertLogRow.stream().map(WebElement::getText).collect(Collectors.toList()).get(0);
     }
 }

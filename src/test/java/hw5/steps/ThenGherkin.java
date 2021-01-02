@@ -1,6 +1,9 @@
 package hw5.steps;
 
 import hw5.services.entity.User;
+import hw5.services.page.component.CheckBox;
+import hw5.services.page.component.Dropdown;
+import hw5.services.page.component.RadioButton;
 import io.cucumber.java.en.Then;
 
 public class ThenGherkin extends AbstractGherkin {
@@ -27,25 +30,27 @@ public class ThenGherkin extends AbstractGherkin {
 
     @Then("Each element should be corresponds to itself with positive status on Different Elements Page")
     public void assertElementsOnDifferentElementsPage() {
-        softAssert.assertTrue(
-                differentElementsPage.getAssertCheckBoxWater().getText().contains("Water") &&
-                        differentElementsPage.getAssertCheckBoxWater().getText().endsWith("true"),
-                "\nLog row and (or) value isn't corresponded to the status of Water's checkbox\n"
+        String actualLogRow = differentElementsPage.getAssertLogRow();
+
+        softAssert.assertEquals(
+                actualLogRow.contains(CheckBox.getFirstCheckbox()),true,
+                String.format("\nLog row and (or) value isn't corresponded to the status of %s checkbox\n",
+                        CheckBox.getFirstCheckbox())
         );
-        softAssert.assertTrue(
-                differentElementsPage.getAssertCheckBoxWind().getText().contains("Wind") &&
-                        differentElementsPage.getAssertCheckBoxWind().getText().endsWith("true"),
-                "\nLog row and (or) value isn't corresponded to the status of Wind's checkbox\n"
+        softAssert.assertEquals(
+                actualLogRow.contains(CheckBox.getSecondCheckbox()),true,
+                String.format("\nLog row and (or) value isn't corresponded to the status of %s checkbox\n",
+                        CheckBox.getSecondCheckbox())
         );
-        softAssert.assertTrue(
-                differentElementsPage.getAssertRadioBtn().getText().contains("metal") &&
-                        differentElementsPage.getAssertRadioBtn().getText().endsWith("Selen"),
-                "\nLog row and (or) value isn't corresponded to the status of Selen's radio button\n"
+        softAssert.assertEquals(
+                actualLogRow.contains(RadioButton.getName()),true,
+                String.format("\nLog row and (or) value isn't corresponded to the status of %s radio button\n",
+                        RadioButton.getName())
         );
-        softAssert.assertTrue(
-                differentElementsPage.getAssertDropdown().getText().contains("Colors") &&
-                        differentElementsPage.getAssertDropdown().getText().endsWith("Yellow"),
-                "\nLog row and (or) value isn't corresponded to the status of selected value\n"
+        softAssert.assertEquals(
+                actualLogRow.contains(Dropdown.getColor()),true,
+                String.format("\nLog row and (or) value isn't corresponded to the status of selected color (%s) value\n",
+                        Dropdown.getColor())
         );
 
         softAssert.assertAll("\nFailed assertAll\n");
@@ -73,7 +78,6 @@ public class ThenGherkin extends AbstractGherkin {
                 "\nIncorrect \'" + usernames + "\' username on User Table Page\n"
         );
     }
-
 
 
     @Then("6 {string} texts under images should be displayed on Users Table on User Table Page")

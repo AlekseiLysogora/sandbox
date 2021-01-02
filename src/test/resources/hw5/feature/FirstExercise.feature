@@ -9,7 +9,7 @@ Feature: Selenium
   Scenario: Exercise 1
     When I click on 'Different Elements' button in Service dropdown
     Then 'Different Elements' page should be opened
-    When I select 'Water' and 'Wind' checkboxes
-    When I select 'Selen' radiobutton
-    When I select 'Yellow' in dropdown
+    When I select 'Water' and 'Fire' checkboxes
+    When I select 'Gold' radiobutton
+    When I select 'Blue' in dropdown
     Then Each element should be corresponds to itself with positive status on Different Elements Page
