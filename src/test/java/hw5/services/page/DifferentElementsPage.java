@@ -6,7 +6,6 @@ import hw5.services.page.component.RadioButton;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -15,6 +14,9 @@ public class DifferentElementsPage extends AbstractPage {
 
     @FindBy(css = ".dropdown-menu > li:nth-child(8) > a")
     protected WebElement differentElements;
+
+    @FindBy(css = "option")
+    protected List<WebElement> colors;
 
     @FindBy(xpath = "//select")
     protected WebElement dropdown;
@@ -60,11 +62,14 @@ public class DifferentElementsPage extends AbstractPage {
         }
     }
 
-    public void selectInDropdown(String colorType) {
-        Dropdown.getInstance(colorType);
+    public void selectColor(String color) {
+        Dropdown.getInstance(color);
         dropdown.click();
-        Select color = new Select(dropdown);
-        color.selectByVisibleText(Dropdown.getColor());
+        for (WebElement colorName: colors) {
+            if (colorName.getText().equals(color)) {
+                colorName.click();
+            }
+        }
     }
 
     public String getAssertLogRow() {

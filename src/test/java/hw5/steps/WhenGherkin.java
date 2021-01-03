@@ -31,7 +31,7 @@ public class WhenGherkin extends AbstractGherkin {
 
     @When("I select {string} in dropdown")
     public void selectColor(String color) {
-        differentElementsPage.selectInDropdown(color);
+        differentElementsPage.selectColor(color);
     }
 
     //Scenario: Exercise 3

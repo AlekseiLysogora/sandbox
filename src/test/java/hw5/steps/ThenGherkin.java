@@ -28,28 +28,33 @@ public class ThenGherkin extends AbstractGherkin {
         );
     }
 
-    @Then("Each element should be corresponds to itself with positive status on Different Elements Page")
+    @Then("Each element should be corresponds to itself"
+            + " with positive status on Different Elements Page")
     public void assertElementsOnDifferentElementsPage() {
         String actualLogRow = differentElementsPage.getAssertLogRow();
 
         softAssert.assertEquals(
                 actualLogRow.contains(CheckBox.getFirstCheckbox()),true,
-                String.format("\nLog row and (or) value isn't corresponded to the status of %s checkbox\n",
+                String.format("\nLog row and (or) value isn't corresponded to"
+                                + " the status of %s checkbox\n",
                         CheckBox.getFirstCheckbox())
         );
         softAssert.assertEquals(
                 actualLogRow.contains(CheckBox.getSecondCheckbox()),true,
-                String.format("\nLog row and (or) value isn't corresponded to the status of %s checkbox\n",
+                String.format("\nLog row and (or) value isn't corresponded to"
+                                + " the status of %s checkbox\n",
                         CheckBox.getSecondCheckbox())
         );
         softAssert.assertEquals(
                 actualLogRow.contains(RadioButton.getName()),true,
-                String.format("\nLog row and (or) value isn't corresponded to the status of %s radio button\n",
+                String.format("\nLog row and (or) value isn't corresponded to"
+                                + " the status of %s radio button\n",
                         RadioButton.getName())
         );
         softAssert.assertEquals(
                 actualLogRow.contains(Dropdown.getColor()),true,
-                String.format("\nLog row and (or) value isn't corresponded to the status of selected color (%s) value\n",
+                String.format("\nLog row and (or) value isn't corresponded to"
+                                + " the status of selected color (%s) value\n",
                         Dropdown.getColor())
         );
 

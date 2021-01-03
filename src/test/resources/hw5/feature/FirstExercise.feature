@@ -11,5 +11,5 @@ Feature: Selenium
     Then 'Different Elements' page should be opened
     When I select 'Water' and 'Fire' checkboxes
     When I select 'Gold' radiobutton
-    When I select 'Blue' in dropdown
+    When I select 'Green' in dropdown
     Then Each element should be corresponds to itself with positive status on Different Elements Page

@@ -37,11 +37,16 @@ public class UserTablePage extends AbstractPage {
     @FindBy(xpath = "//li[contains(text(), 'Vip: condition changed to true')]")
     private WebElement assertRow;
 
+    @FindBy(css = "select")
+    protected List<WebElement> dropdowns;
+
     public UserTablePage(WebDriver driver) {
         super(driver);
     }
 
     public String getNumber() {
+        System.out.println(dropdowns
+                .stream().map(WebElement::getText).collect(Collectors.toList()).size());
         return numberOne.getText();
     }
 
@@ -69,7 +74,8 @@ public class UserTablePage extends AbstractPage {
         names.add(yoshi);
         names.add(giovanni);
 
-        List<String> textsName = names.stream().map(WebElement::getText).collect(Collectors.toList());
+        List<String> textsName = names
+                .stream().map(WebElement::getText).collect(Collectors.toList());
 
         return textsName;
     }

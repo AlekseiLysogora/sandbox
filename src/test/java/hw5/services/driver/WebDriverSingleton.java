@@ -12,7 +12,8 @@ public class WebDriverSingleton {
     }
 
     public static WebDriver getDriver() {
-        String browserName = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
+        String browserName = System
+                .getProperty("browser") == null ? "chrome" : System.getProperty("browser");
         if (Objects.isNull(driver)) {
             driver = WebDriverFactory.createWebDriver(browserName);
         }
