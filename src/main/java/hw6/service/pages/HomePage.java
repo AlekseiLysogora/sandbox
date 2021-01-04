@@ -9,11 +9,11 @@ import hw6.service.pages.elements.composite.LoginComposite;
 public class HomePage extends WebPage {
 
     @FindBy(id = "user-icon")
-    public static Label label;
+    public Label label;
 
-    public static LoginComposite loginComposite;
+    public LoginComposite loginComposite;
 
-    public static void loginJdiSite(User user) {
+    public void loginJdiSite(User user) {
         label.click();
         loginComposite.loginAs(user);
     }
