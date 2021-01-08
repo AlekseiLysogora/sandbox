@@ -104,7 +104,7 @@ public class ThenGherkin extends AbstractGherkin {
     @Then("{string} should contain values in column Type for user Roman")
     public void assertDroplist(String droplist) {
         softAssert.assertEquals(
-                userTablePage.assertDroplist(droplist), droplist,
+                userTablePage.assertDroplist(), droplist,
                 "\nIncorrect \'" + droplist + "\' droplist on User Table Page\n"
         );
     }

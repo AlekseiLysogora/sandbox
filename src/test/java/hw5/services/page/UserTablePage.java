@@ -1,5 +1,6 @@
 package hw5.services.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +30,12 @@ public class UserTablePage extends AbstractPage {
     @FindBy(css = "select")
     protected List<WebElement> dropdowns;
 
+    @FindBy(xpath = "//tbody//div")
+    protected List<WebElement> clickCheckBox;
+
+    @FindBy(xpath = "//tbody//tr")
+    protected List<WebElement> clickCheckBox2;
+
     public UserTablePage(WebDriver driver) {
         super(driver);
     }
@@ -41,10 +48,6 @@ public class UserTablePage extends AbstractPage {
                 return true;
             }
         }
-        //comment's hint (at the end of class's code)
-        //System.out.println(dropdowns
-        //.stream().map(WebElement::getText).collect(Collectors.toList()).size());
-
         return false;
     }
 
@@ -78,17 +81,23 @@ public class UserTablePage extends AbstractPage {
         return String.valueOf(sixCheckBoxes.size());
     }
 
-    public String assertDroplist(String droplist) {
+    public String assertDroplist() {
         List<String> roles = droplistElem
                 .stream().map(WebElement::getText).collect(Collectors.toList());
-        System.out.println(roles);
         return roles.get(0);
     }
+
 
     //Exercise 3:
 
     public void selectVipCheckbox(String vip, String name) {
-        vipCheckbox.click();
+        for (WebElement e: clickCheckBox2) {
+            if (e.getText().contains(name)){
+                System.out.println(e.getText());
+                e.findElement(By.tagName("input")).click();
+                //e.findElement(By.linkText(vip)).click();
+            }
+        }
     }
 
     public String getAssertRow() {
