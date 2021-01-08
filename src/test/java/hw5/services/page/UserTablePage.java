@@ -81,7 +81,7 @@ public class UserTablePage extends AbstractPage {
     public String assertDroplist(String droplist) {
         List<String> roles = droplistElem
                 .stream().map(WebElement::getText).collect(Collectors.toList());
-
+        System.out.println(roles);
         return roles.get(0);
     }
 
