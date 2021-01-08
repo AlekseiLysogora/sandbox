@@ -68,34 +68,36 @@ public class ThenGherkin extends AbstractGherkin {
 
     @Then("6 {string} Type Dropdowns should be displayed on Users Table on User Table Page")
     public void assertDropdowns(String dropdowns) {
-        softAssert.assertEquals(
-                userTablePage.getNumber(), dropdowns,
+        softAssert.assertTrue(
+                userTablePage.getNumber(dropdowns),
                 "\nIncorrect \'" + dropdowns + "\' number on User Table Page\n"
         );
-
-
     }
 
     @Then("6 {string}names should be displayed on Users Table on User Table Page")
     public void assertUsernames(String usernames) {
-        softAssert.assertEquals(
-                userTablePage.getUser(), usernames,
+        softAssert.assertTrue(
+                userTablePage.getUser(usernames),
                 "\nIncorrect \'" + usernames + "\' username on User Table Page\n"
         );
     }
 
-
     @Then("6 {string} texts under images should be displayed on Users Table on User Table Page")
     public void assertDescription(String description) {
-        softAssert.assertEquals(
-                userTablePage.getDescription(), description,
+        softAssert.assertTrue(
+                userTablePage.getDescription(description),
                 "\nIncorrect \'" + description + "\' description on User Table Page\n"
         );
-
     }
 
-    @Then("6 checkboxes should be displayed on Users Table on User Table Page")
-    public void assertCheckboxes() {
+    @Then("{string} checkboxes should be displayed on Users Table on User Table Page")
+    public void assertCheckboxes(String amountOfCheckBoxes) {
+        softAssert.assertEquals(
+                userTablePage.assertSixCheckboxes(), amountOfCheckBoxes,
+                "\nIncorrect \'" + amountOfCheckBoxes + "\' amount of checkboxes on User Table Page\n"
+        );
+
+
         softAssert.assertAll("\nFailed assertAll\n");
     }
 

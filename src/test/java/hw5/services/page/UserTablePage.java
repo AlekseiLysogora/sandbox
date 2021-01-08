@@ -3,32 +3,21 @@ package hw5.services.page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserTablePage extends AbstractPage {
 
-    @FindBy(xpath = "//td[text()='1']")
-    private WebElement numberOne;
+    @FindBy(xpath = "//tbody//tr/td//a")
+    private List<WebElement> nameList;
 
-    @FindBy(xpath = "//a[text()='Roman']")
-    private WebElement roman;
-    @FindBy(xpath = "//a[text()='Sergey Ivan']")
-    private WebElement sergey;
-    @FindBy(xpath = "//a[text()='Vladzimir']")
-    private WebElement vladzimir;
-    @FindBy(xpath = "//a[text()='Helen Bennett']")
-    private WebElement helen;
-    @FindBy(xpath = "//a[text()='Yoshi Tannamuri']")
-    private WebElement yoshi;
-    @FindBy(xpath = "//a[text()='Giovanni Rovelli']")
-    private WebElement giovanni;
+    @FindBy(xpath = "//tbody//div/span")
+    private List<WebElement> heroesList;
 
-    @FindBy(xpath = "//span[text()='Wolverine']")
-    private WebElement description;
+    @FindBy(xpath = "//*[@type='checkbox']")
+    private List<WebElement> sixCheckBoxes;
 
-    @FindBy(xpath = "//select")
+    @FindBy(xpath = "//tbody/tr[1]/td[2]/select")
     private List<WebElement> droplistElem;
 
     @FindBy(id = "ivan")
@@ -44,18 +33,49 @@ public class UserTablePage extends AbstractPage {
         super(driver);
     }
 
-    public String getNumber() {
-        System.out.println(dropdowns
-                .stream().map(WebElement::getText).collect(Collectors.toList()).size());
-        return numberOne.getText();
+    public boolean getNumber(String number) {
+        for (Integer x = 1; x < dropdowns.size()+1; x++)
+        {
+            System.out.println(x); //comment's hint (at the end of class's code)
+            if (number.equals(x.toString())){
+                return true;
+            }
+        }
+        //comment's hint (at the end of class's code)
+        //System.out.println(dropdowns
+        //.stream().map(WebElement::getText).collect(Collectors.toList()).size());
+
+        return false;
     }
 
-    public String getUser() {
-        return roman.getText();
+    public boolean getUser(String usernames) {
+        for (WebElement nameInList: nameList) {
+            if (nameInList.getText().equals(usernames)) {
+                System.out.println(
+                        String //comment's hint (at the end of class's code)
+                                .format("name in list == %s", nameInList.getText())
+                );
+                return true;
+            }
+        }
+        return false;
     }
 
-    public String getDescription() {
-        return description.getText();
+    public boolean getDescription(String description) {
+        for (WebElement heroeInList: heroesList) {
+            if (description.contains(heroeInList.getText().substring(0,3))) {
+                System.out.println(
+                        String //comment's hint (at the end of class's code)
+                                .format("hero in list == %s", heroeInList.getText())
+                );
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String assertSixCheckboxes() {
+        return String.valueOf(sixCheckBoxes.size());
     }
 
     public String assertDroplist(String droplist) {
@@ -63,21 +83,6 @@ public class UserTablePage extends AbstractPage {
                 .stream().map(WebElement::getText).collect(Collectors.toList());
 
         return roles.get(0);
-    }
-
-    public List<String> assertUsernames() {
-        List<WebElement> names = new ArrayList<>();
-        names.add(roman);
-        names.add(vladzimir);
-        names.add(sergey);
-        names.add(helen);
-        names.add(yoshi);
-        names.add(giovanni);
-
-        List<String> textsName = names
-                .stream().map(WebElement::getText).collect(Collectors.toList());
-
-        return textsName;
     }
 
     //Exercise 3:
@@ -90,3 +95,12 @@ public class UserTablePage extends AbstractPage {
         return assertRow.getText().substring(9);
     }
 }
+
+    /*
+                            ***COMMENT'S HINT***
+
+        Hi! I know that this is a bad practice to leave some log's information in the product code,
+    but, please, let me leave this line(s) here. It will help us (especially me as a junior tester)
+    in the future to understand logical steps better and figure out an error if it comes to our code.
+    Thanks:)
+    */
