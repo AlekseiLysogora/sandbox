@@ -18,11 +18,8 @@ public class UserTablePage extends AbstractPage {
     @FindBy(xpath = "//*[@type='checkbox']")
     private List<WebElement> sixCheckBoxes;
 
-    @FindBy(xpath = "//tbody/tr[1]/td[2]/select")
+    @FindBy(xpath = "//tbody//select")
     private List<WebElement> droplistElem;
-
-    @FindBy(id = "ivan")
-    private WebElement vipCheckbox;
 
     @FindBy(xpath = "//li[contains(text(), 'Vip: condition changed to true')]")
     private WebElement assertRow;
@@ -30,11 +27,8 @@ public class UserTablePage extends AbstractPage {
     @FindBy(css = "select")
     protected List<WebElement> dropdowns;
 
-    @FindBy(xpath = "//tbody//div")
-    protected List<WebElement> clickCheckBox;
-
     @FindBy(xpath = "//tbody//tr")
-    protected List<WebElement> clickCheckBox2;
+    protected List<WebElement> selectCheckboxForSergeyIvan;
 
     public UserTablePage(WebDriver driver) {
         super(driver);
@@ -87,11 +81,10 @@ public class UserTablePage extends AbstractPage {
         return roles.get(0);
     }
 
-
     //Exercise 3:
 
     public void selectVipCheckbox(String vip, String name) {
-        for (WebElement e: clickCheckBox2) {
+        for (WebElement e: selectCheckboxForSergeyIvan) {
             if (e.getText().contains(name)){
                 System.out.println(e.getText());
                 e.findElement(By.tagName("input")).click();
