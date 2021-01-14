@@ -1,17 +1,25 @@
-package hw6.service.pages;
+package hw6.testscore.pages;
 
 import com.epam.jdi.light.elements.common.Label;
+import com.epam.jdi.light.elements.complex.Menu;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
-import hw6.service.entities.User;
-import hw6.service.pages.elements.composite.LoginComposite;
 
+import hw6.testscore.entities.User;
+import hw6.testscore.pages.elements.composite.LoginComposite;
+
+import lombok.Getter;
+
+@Getter
 public class HomePage extends WebPage {
 
     @FindBy(id = "user-icon")
-    public Label label;
+    private Label label;
 
-    public LoginComposite loginComposite;
+    @FindBy(css = ".nav")
+    public Menu header;
+
+    private LoginComposite loginComposite;
 
     public void loginJdiSite(User user) {
         label.click();

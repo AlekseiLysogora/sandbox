@@ -19,6 +19,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <allure.version>2.13.7</allure.version>
         <cucumber.version>6.9.1</cucumber.version>
+
         <jdi.version>1.3.1</jdi.version>
         <gson.version>2.8.5</gson.version>
 
@@ -60,9 +61,6 @@
 
         <profile>
             <id>hw5</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <suite.file>${project.build.testOutputDirectory}/hw5/suite/SuiteHW5.xml</suite.file>
             </properties>
@@ -70,6 +68,9 @@
 
         <profile>
             <id>hw6</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <suite.file>${project.build.testOutputDirectory}/hw6/suite/SuiteHW6.xml</suite.file>
             </properties>
@@ -147,18 +148,27 @@
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.3.0</version>
             <scope>compile</scope>
         </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
             <version>3.141.59</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -91,10 +91,10 @@ public class ThenGherkin extends AbstractGherkin {
     }
 
     @Then("{string} checkboxes should be displayed on Users Table on User Table Page")
-    public void assertCheckboxes(String amountOfCheckBoxes) {
+    public void assertCheckboxes(String amountCheckBoxes) {
         softAssert.assertEquals(
-                userTablePage.assertSixCheckboxes(), amountOfCheckBoxes,
-                "\nIncorrect \'" + amountOfCheckBoxes + "\' amount of checkboxes on User Table Page\n"
+                userTablePage.assertSixCheckboxes(), amountCheckBoxes,
+                "\nIncorrect \'" + amountCheckBoxes + "\' amount of checkboxes on User Table Page\n"
         );
 
 

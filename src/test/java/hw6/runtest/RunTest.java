@@ -1,37 +1,32 @@
 package hw6.runtest;
 
-import hw6.Site;
-import hw6.service.entities.JsonDataProvider;
+import hw6.TestsInit;
+import hw6.testscore.utility.AuxiliaryClass;
+import hw6.testscore.utility.DataProviderJson;
 
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-public class RunTest extends CoreTest {
-    /*
-    1. Login on JDI site as User +
-    2. Open Metals & Colors page by Header menu +
-    3. Fill form Metals & Colors by data below:
-    -. Submit form Metals & Colors
-    4. Result sections should contains data  below:
-     */
+import static hw6.Site.*;
 
-    @Test(
-            dataProvider = "jsonData",
-            dataProviderClass = JsonDataProvider.class
-    )
+public class RunTest extends AuxiliaryClass implements TestsInit {
+    private boolean firstTime = true;
+
+    @Test(dataProvider = "jsonData", dataProviderClass = DataProviderJson.class)
     public void userCanSubmitMetalsAndColorsFormTest(
-            ArrayList<String> summary, String color, String metal,
-            ArrayList<String> vegetable
-    )
-    {
-        Site.openHomePage();
-        homePage.loginJdiSite(ROMAN);
-        Site.openMetalColorPage();
-        metalsAndColorsPage.selectSummary(summary);
-        metalsAndColorsPage.selectElements();
-        metalsAndColorsPage.selectColors(color);
-        metalsAndColorsPage.selectMetals(metal);
-        metalsAndColorsPage.selectVegetables(vegetable);
+            ArrayList<String> summary, ArrayList<String> elements,
+            String color, String metal, ArrayList<String> vegetable
+    ) {
+        openSite();
+        login(ROMAN);
+        openMetalColorPage();
+//        selectSummary(summary);
+//        selectElements(elements);
+//        selectColors(color);
+//        selectMetals(metal);
+        selectVegetables(vegetable);
+        pressSubmitBtn();
+        assertResults();
     }
 }

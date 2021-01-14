@@ -35,10 +35,9 @@ public class UserTablePage extends AbstractPage {
     }
 
     public boolean getNumber(String number) {
-        for (Integer x = 1; x < dropdowns.size()+1; x++)
-        {
+        for (Integer x = 1; x < dropdowns.size() + 1; x++) {
             System.out.println(x); //comment's hint (at the end of class's code)
-            if (number.equals(x.toString())){
+            if (number.equals(x.toString())) {
                 return true;
             }
         }
@@ -85,7 +84,7 @@ public class UserTablePage extends AbstractPage {
 
     public void selectVipCheckbox(String vip, String name) {
         for (WebElement e: selectCheckboxForSergeyIvan) {
-            if (e.getText().contains(name)){
+            if (e.getText().contains(name)) {
                 System.out.println(e.getText());
                 e.findElement(By.tagName("input")).click();
                 //e.findElement(By.linkText(vip)).click();
@@ -103,6 +102,6 @@ public class UserTablePage extends AbstractPage {
 
         Hi! I know that this is a bad practice to leave some log's information in the product code,
     but, please, let me leave this line(s) here. It will help us (especially me as a junior tester)
-    in the future to understand logical steps better and figure out an error if it comes to our code.
+    in the future to understand logical steps better and figure out an error if it comes to our code
     Thanks:)
     */

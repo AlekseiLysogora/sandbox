@@ -1,19 +1,20 @@
-package hw6.service.pages;
+package hw6.testscore.pages;
 
 import com.epam.jdi.light.elements.complex.Checklist;
-//import com.epam.jdi.light.ui.html.complex.Checklist; взято из документации
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.*;
-import com.epam.jdi.light.ui.html.elements.common.Button;
-import com.epam.jdi.light.ui.html.elements.common.Checkbox;
+import com.epam.jdi.light.ui.html.elements.common.*;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 
-import java.util.ArrayList;
-import java.util.List;
+import hw6.testscore.jsonreader.WriteToJason;
 
-//@Url("https://jdi-testing.github.io/jdi-light/metals-colors.html")
+import org.openqa.selenium.WebElement;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class MetalsAndColorsPage extends WebPage {
 
     @UI("[name=custom_radio_odd]")
@@ -23,7 +24,7 @@ public class MetalsAndColorsPage extends WebPage {
     public RadioButtons summaryBottom;
 
     @FindBy(id = "elements-checklist")
-    List<Checkbox> checkboxes;
+    public List<Checkbox> checkboxes;
 
     @FindBy(xpath = "//*[@type='checkbox']")
     public Checklist elements;
@@ -52,12 +53,24 @@ public class MetalsAndColorsPage extends WebPage {
     )
     public Dropdown vegetables;
 
+    @XPath("//input[@id='g7']")
+    public Checkbox vegetableCheckBox;
+
+    @UI("['Submit']")
+    public Button submit;
+
+    @FindBy(xpath = "//*[@id='mCSB_2_container']/section[2]/div[2]/div")
+    private List<WebElement> assertRow;
+
+    private WriteToJason writeToJason;
+
     public void selectSummary(ArrayList<String> summary) {
         summaryTop.select(summary.get(0));
         summaryBottom.select(summary.get(1));
     }
 
-    public void selectElements() {
+    public void selectElements(ArrayList<String> elements) {
+        System.out.println(elements.toString() + "******");
     }
 
     public void selectColors(String color) {
@@ -69,8 +82,25 @@ public class MetalsAndColorsPage extends WebPage {
     }
 
     public void selectVegetables(ArrayList<String> vegetable) {
-        // как очистить поле перед выбором элементов
+        cleanUpVegetables();
 
-        vegetables.select(vegetable.get(0));
+        for (String veget:vegetable) {
+            vegetables.select(veget);
+        }
+    }
+
+    public void cleanUpVegetables() {
+        vegetables.expand();
+        vegetableCheckBox.click();
+    }
+
+    public void pressSubmitBtn() {
+        submit.click();
+    }
+
+    public void assertResults() {
+        writeToJason = new WriteToJason();
+        writeToJason.writeToJason(assertRow
+                .stream().map(WebElement::getText).collect(Collectors.toList()).get(0));
     }
 }
