@@ -73,7 +73,8 @@ public class Site {
 
         System.err.println("\n*-*-* " + metalColorPage.assertResults2() + " *-*-*\n");
 
-
+        metalColorPage.assertResults2().isEmpty();
+        //JdiSite.homePage.benefits.is().size(EXPECTED_BENEFITS_COUNT);
 
         softAssert.assertAll("All checks have been failing.");
     }

@@ -32,6 +32,11 @@ public class RootActualDataJsonObject {
 
     public RootActualDataJsonObject createDataObject(String writeActualObject) {
 
+        // Изначально идея была такая: в этот метод прилетает строка с результатами
+        // Затем, эту строку необходимо разобрать на составляющие (думал регексом)
+        // Далее то что, получилось после регекса --> запихиваю в Json объекты
+        // Вишинка на торте == сравниваю два Гсон объекта друг с другом
+        // ..но что-то пошло не так(
         //System.err.println("\n*-*-* " + writeActualObject + " *-*-*\n");
 
         GetProperty getProperty = new GetProperty(PROPERTY);
