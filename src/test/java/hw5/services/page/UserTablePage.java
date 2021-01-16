@@ -42,61 +42,63 @@ public class UserTablePage extends AbstractPage {
         }
         return false;
     }
-//
-//    public boolean getUser(String usernames) {
-//
-//        Queue<String> myPriorityQueue = new LinkedList<>();
-//
-//
-//        //add to the queue user's names from User page in the certain sequence
-//        for (WebElement element: nameList){
-//            myPriorityQueue.add(element.getText());
-//        }
-//
-//        if (myPriorityQueue.contains(usernames)){
-//            System.out.println(usernames + "");
-//        }
-//
-//        System.out.println(myPriorityQueue);
-//        while (!myPriorityQueue.isEmpty()) {
-//            System.out.println("*queue* " + myPriorityQueue.remove() + " **");
-//        }
-//
-//
-////        for (WebElement nameInList: nameList) {
-////            if (nameInList.getText().equals(usernames)) {
-////                System.out.println(
-////                        String //comment's hint (at the end of class's code)
-////                                .format("name in list == %s", nameInList.getText())
-////                );
-////                return true;
-////            }
-////        }
-//
-//        for (String nameForCompare: myPriorityQueue) {
-//            if (myPriorityQueue.contains(usernames)) {
-//                System.out.println(nameForCompare +"--nameForCompare");
-//                System.out.println(
-//                        String //comment's hint (at the end of class's code)
-//                                .format("name in list == %s", myPriorityQueue.element())
-//                );
-//                return true;
-//            }
-//        }
-//
-//
-////        for (WebElement nameInList: nameList) {
-////            if (nameInList.getText().equals(usernames)) {
-////                System.out.println(
-////                        String //comment's hint (at the end of class's code)
-////                                .format("name in list == %s", nameInList.getText())
-////                );
-////                return true;
-////            }
-////        }
-//        return false;
-//    }
-//
+
+    //
+    //    public boolean getUser(String usernames) {
+    //
+    //        Queue<String> myPriorityQueue = new LinkedList<>();
+    //
+    //
+    //        //add to the queue user's names from User page in the certain sequence
+    //        for (WebElement element: nameList){
+    //            myPriorityQueue.add(element.getText());
+    //        }
+    //
+    //        if (myPriorityQueue.contains(usernames)){
+    //            System.out.println(usernames + "");
+    //        }
+    //
+    //        System.out.println(myPriorityQueue);
+    //        while (!myPriorityQueue.isEmpty()) {
+    //            System.out.println("*queue* " + myPriorityQueue.remove() + " **");
+    //        }
+    //
+    //
+    ////        for (WebElement nameInList: nameList) {
+    ////            if (nameInList.getText().equals(usernames)) {
+    ////                System.out.println(
+    ////                        String //comment's hint (at the end of class's code)
+    ////                                .format("name in list == %s", nameInList.getText())
+    ////                );
+    ////                return true;
+    ////            }
+    ////        }
+    //
+    //        for (String nameForCompare: myPriorityQueue) {
+    //            if (myPriorityQueue.contains(usernames)) {
+    //                System.out.println(nameForCompare +"--nameForCompare");
+    //                System.out.println(
+    //                        String //comment's hint (at the end of class's code)
+    //                                .format("name in list == %s", myPriorityQueue.element())
+    //                );
+    //                return true;
+    //            }
+    //        }
+    //
+    //
+    ////        for (WebElement nameInList: nameList) {
+    ////            if (nameInList.getText().equals(usernames)) {
+    ////                System.out.println(
+    ////                        String //comment's hint (at the end of class's code)
+    ////                                .format("name in list == %s", nameInList.getText())
+    ////                );
+    ////                return true;
+    ////            }
+    ////        }
+    //        return false;
+    //    }
+    //
+
     public boolean getUser(String usernames) {
         for (WebElement nameInList: nameList) {
             if (nameInList.getText().equals(usernames)) {

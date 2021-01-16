@@ -47,21 +47,22 @@ public class DataProviderJson {
                 }
         };
     }
-        /*@DataProvider(name = "jsonData2")
-        public static Object[][] jsonData2() {
-
-            for (int i = 1; i < 6; i++) {
-                return new Object[][]{
-                        {
-                                existingDataJsonObject.getJsonData(i).getSummary(),
-                                existingDataJsonObject.getJsonData(i).getElements(),
-                                existingDataJsonObject.getJsonData(i).getColor(),
-                                existingDataJsonObject.getJsonData(i).getMetals(),
-                                existingDataJsonObject.getJsonData(i).getVegetables()
-                        }
-                };
-            }
-
-            return new Object[][]{ {}, {}, {} };
-        }*/
+    //Попытка избавиться от повторяющегося кода не увенчалась успехом
+    //        @DataProvider(name = "jsonData2")
+    //        public static Object[][] jsonData2() {
+    //
+    //            for (int i = 1; i < 6; i++) {
+    //                return new Object[][]{
+    //                        {
+    //                                existingDataJsonObject.getJsonData(i).getSummary(),
+    //                                existingDataJsonObject.getJsonData(i).getElements(),
+    //                                existingDataJsonObject.getJsonData(i).getColor(),
+    //                                existingDataJsonObject.getJsonData(i).getMetals(),
+    //                                existingDataJsonObject.getJsonData(i).getVegetables()
+    //                        }
+    //                };
+    //            }
+    //
+    //            return new Object[][]{ {}, {}, {} };
+    //        }
 }

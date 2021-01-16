@@ -28,12 +28,15 @@ public class ExistingDataJsonObject {
     public ExistingDataJsonObject getJsonData_2() {
         return gson.fromJson(readFromJson.getObjectData_2(), ExistingDataJsonObject.class);
     }
+
     public ExistingDataJsonObject getJsonData_3() {
         return gson.fromJson(readFromJson.getObjectData_3(), ExistingDataJsonObject.class);
     }
+
     public ExistingDataJsonObject getJsonData_4() {
         return gson.fromJson(readFromJson.getObjectData_4(), ExistingDataJsonObject.class);
     }
+
     public ExistingDataJsonObject getJsonData_5() {
         return gson.fromJson(readFromJson.getObjectData_5(), ExistingDataJsonObject.class);
     }

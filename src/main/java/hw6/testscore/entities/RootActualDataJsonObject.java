@@ -1,10 +1,6 @@
 package hw6.testscore.entities;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
-import hw6.testscore.entities.dataEntity.Elements;
+import hw6.testscore.entities.dataentity.Elements;
 import hw6.testscore.utility.GetProperty;
 import lombok.*;
 
@@ -34,30 +30,23 @@ public class RootActualDataJsonObject {
 
         // Изначально идея была такая: в этот метод прилетает строка с результатами
         // Затем, эту строку необходимо разобрать на составляющие (думал регексом)
-        // Далее то что, получилось после регекса --> запихиваю в Json объекты
+        // Далее, то что, получилось после регекса --> запихиваю в Json объекты
         // Вишинка на торте == сравниваю два Гсон объекта друг с другом
         // ..но что-то пошло не так(
         //System.err.println("\n*-*-* " + writeActualObject + " *-*-*\n");
 
-        GetProperty getProperty = new GetProperty(PROPERTY);
-
         Elements getElements = new Elements();
-
-        RootActualDataJsonObject rootActualDataJsonObject = new RootActualDataJsonObject();
-
-        String color = String.valueOf(writeActualObject.contains("Color"));
-
-        String metals = writeActualObject.substring(0,10);
-
         ArrayList<String> vegetables = new ArrayList<>();
         vegetables.add("Cucumber");
-
 
         data1.setSummary("3");
         data1.setElements(getElements.getElements1());
         data1.setColor("Red");
         data1.setMetals("Gold");
         data1.setVegetables(vegetables);
+
+        String color = String.valueOf(writeActualObject.contains("Color"));
+        String metals = writeActualObject.substring(0,10);
 
         data2.setSummary("summary");
         data2.setElements(getElements.getElements2());
@@ -82,6 +71,8 @@ public class RootActualDataJsonObject {
         data5.setColor(color);
         data5.setMetals(metals);
         data5.setVegetables(vegetables);
+
+        RootActualDataJsonObject rootActualDataJsonObject = new RootActualDataJsonObject();
 
         rootActualDataJsonObject.setData1(data1);
         rootActualDataJsonObject.setData2(data2);

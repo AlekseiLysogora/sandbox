@@ -102,6 +102,11 @@ public class MetalsAndColorsPage extends WebPage {
         submit.click();
     }
 
+    /*
+    This method was aimed to get the log row to the compassion.
+    The idea was concluded to write the actual log for the page to
+    the new JSON object for the following comparison.
+     */
     public void assertResults() {
         writeToJason = new WriteToJason();
         writeToJason.writeToJason(assertRow

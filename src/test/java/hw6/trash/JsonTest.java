@@ -5,96 +5,12 @@ import com.google.gson.reflect.TypeToken;
 import hw6.testscore.entities.ExistingDataJsonObject;
 import org.testng.annotations.Test;
 
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class JsonTest {
-
-    JsonParser jsonParser = new JsonParser();
-    String pathToJsonFile = "hw6/properties/JDI_ex8_metalsColorsDataSet.json";
-    InputStream inputStream = getClass().getClassLoader().getResourceAsStream(pathToJsonFile);
-    Reader reader = new InputStreamReader(inputStream);
-
-    JsonElement rootelement = jsonParser.parse(reader);
-
-    JsonObject rootObject = rootelement.getAsJsonObject();
-
-    @Test
-    public void getSummaryData1() {
-        JsonObject object = rootObject.getAsJsonObject("data_1");
-
-        JsonArray summary = object.getAsJsonArray("summary");
-
-        ArrayList<Integer> yourArray = new Gson()
-                .fromJson(summary, new TypeToken<ArrayList<Integer>>(){}.getType());
-
-        String result = String.valueOf(yourArray.get(0) + yourArray.get(1));
-
-        System.out.println(result);
-        //return result;
-    }
-    @Test
-    public void getSummaryData2() {
-        JsonObject object = rootObject.getAsJsonObject("data_2");
-
-        JsonArray summary = object.getAsJsonArray("summary");
-
-        ArrayList<Integer> yourArray = new Gson()
-                .fromJson(summary, new TypeToken<ArrayList<Integer>>(){}.getType());
-
-        String result = String.valueOf(yourArray.get(0) + yourArray.get(1));
-
-        System.out.println(result);
-        //return result;
-    }
-    @Test
-    public void getSummaryData3() {
-        JsonObject object = rootObject.getAsJsonObject("data_3");
-
-        JsonArray summary = object.getAsJsonArray("summary");
-
-        ArrayList<Integer> yourArray = new Gson()
-                .fromJson(summary, new TypeToken<ArrayList<Integer>>(){}.getType());
-
-        String result = String.valueOf(yourArray.get(0) + yourArray.get(1));
-
-        System.out.println(result);
-        //return result;
-    }
-    @Test
-    public void getSummaryData4() {
-        JsonObject object = rootObject.getAsJsonObject("data_4");
-
-        JsonArray summary = object.getAsJsonArray("summary");
-
-        ArrayList<Integer> yourArray = new Gson()
-                .fromJson(summary, new TypeToken<ArrayList<Integer>>(){}.getType());
-
-        String result = String.valueOf(yourArray.get(0) + yourArray.get(1));
-
-        System.out.println(result);
-        //return result;
-    }
-    @Test
-    public void getSummaryData5() {
-        JsonObject object = rootObject.getAsJsonObject("data_5");
-
-        JsonArray summary = object.getAsJsonArray("summary");
-
-        ArrayList<Integer> yourArray = new Gson()
-                .fromJson(summary, new TypeToken<ArrayList<Integer>>(){}.getType());
-
-        String result = String.valueOf(yourArray.get(0) + yourArray.get(1));
-
-        System.out.println(result);
-        //return result;
-    }
-
-
 
     @Test
     public void testJson() {
@@ -115,7 +31,8 @@ public class JsonTest {
         JsonArray vegetables = object.getAsJsonArray("vegetables");
 
         Gson gson = new Gson();
-        ExistingDataJsonObject entityDataFromJson = gson.fromJson(object, ExistingDataJsonObject.class);
+        ExistingDataJsonObject entityDataFromJson = gson
+                .fromJson(object, ExistingDataJsonObject.class);
         System.out.println(entityDataFromJson.getJsonData_1().toString() + "\n");
 
         ArrayList<Integer> yourArray = new Gson()

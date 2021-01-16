@@ -11,6 +11,7 @@ import hw6.testscore.pages.Pages;
 import hw6.testscore.pages.HomePage;
 import hw6.testscore.pages.MetalsAndColorsPage;
 
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
@@ -26,8 +27,6 @@ public class Site {
 
     @Url("metals-colors.html")
     public static MetalsAndColorsPage metalColorPage;
-
-    private static SoftAssert softAssert;
 
     public static void openSite() {
         homePage.open();
@@ -69,18 +68,18 @@ public class Site {
     }
 
     public static void assertResults() {
-        softAssert = new SoftAssert();
 
-        System.err.println("\n*-*-* " + metalColorPage.assertResults2() + " *-*-*\n");
 
-        metalColorPage.assertResults2().isEmpty();
+        //System.err.println("\n*-*-* " + metalColorPage.assertResults2() + " *-*-*\n");
+
+        Assert.assertTrue(!metalColorPage.assertResults2().isEmpty(),
+                "Log row at the page is empty");
         //JdiSite.homePage.benefits.is().size(EXPECTED_BENEFITS_COUNT);
-
-        softAssert.assertAll("All checks have been failing.");
     }
 
     private static void openSiteIfItClosed() {
-        if (!WebPage.getUrl().contains("https://jdi-testing.github.io/jdi-light/"))
+        if (!WebPage.getUrl().contains("https://jdi-testing.github.io/jdi-light/")) {
             homePage.open();
+        }
     }
 }

@@ -20,23 +20,26 @@ public class ReadFromJson {
 
     JsonObject rootObject = rootElement.getAsJsonObject();
 
-
     public JsonObject getObjectData_1() {
         JsonObject object = rootObject.getAsJsonObject("data_1");
         return object;
     }
+
     public JsonObject getObjectData_2() {
         JsonObject object = rootObject.getAsJsonObject("data_2");
         return object;
     }
+
     public JsonObject getObjectData_3() {
         JsonObject object = rootObject.getAsJsonObject("data_3");
         return object;
     }
+
     public JsonObject getObjectData_4() {
         JsonObject object = rootObject.getAsJsonObject("data_4");
         return object;
     }
+
     public JsonObject getObjectData_5() {
         JsonObject object = rootObject.getAsJsonObject("data_5");
         return object;
