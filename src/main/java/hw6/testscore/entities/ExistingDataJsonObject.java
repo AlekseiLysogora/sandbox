@@ -1,7 +1,7 @@
 package hw6.testscore.entities;
 
 import com.google.gson.Gson;
-import hw6.testscore.jsonreader.ReadFromJson;
+import hw6.testscore.jsonreadewrite.ReadFromJson;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -38,17 +38,10 @@ public class ExistingDataJsonObject {
         return gson.fromJson(readFromJson.getObjectData_5(), ExistingDataJsonObject.class);
     }
 
-    //    public DataJsonObject getJsonData(int counter) {
-    //        return gson.fromJson(readFromJson.getObjectData(counter), DataJsonObject.class);
-    //    }
-
-    @Override
-    public String toString() {
-        return  "summary=" + summary
-                + ", elements=" + elements
-                + ", color='" + color + '\''
-                + ", metals='" + metals + '\''
-                + ", vegetables=" + vegetables
-                + '}';
-    }
+    /*public ExistingDataJsonObject getJsonData(int i) {
+        for (int j = 1; j < 6; j++) {
+            return gson.fromJson(readFromJson.getObjectData(j), ExistingDataJsonObject.class);
+        }
+        return null;
+    }*/
 }

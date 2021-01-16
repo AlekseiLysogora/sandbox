@@ -23,7 +23,7 @@ public class DataProviderJson {
                         existingDataJsonObject.getJsonData_2().getColor(),
                         existingDataJsonObject.getJsonData_2().getMetals(),
                         existingDataJsonObject.getJsonData_2().getVegetables()
-                }/*,
+                },
                 {
                         existingDataJsonObject.getJsonData_3().getSummary(),
                         existingDataJsonObject.getJsonData_3().getElements(),
@@ -44,25 +44,24 @@ public class DataProviderJson {
                         existingDataJsonObject.getJsonData_5().getColor(),
                         existingDataJsonObject.getJsonData_5().getMetals(),
                         existingDataJsonObject.getJsonData_5().getVegetables()
-                }*/
+                }
         };
     }
+        /*@DataProvider(name = "jsonData2")
+        public static Object[][] jsonData2() {
 
-    //    @DataProvider(name = "jsonData2")
-    //    public static Object[][] jsonData2() {
-    //
-    //        for (int i = 0; i < 6; i++) {
-    //            return new Object[][]{
-    //                    {
-    //                            dataJsonObject.getJsonData(i).getSummary(),
-    //                            dataJsonObject.getJsonData(i).getElements(),
-    //                            dataJsonObject.getJsonData(i).getColor(),
-    //                            dataJsonObject.getJsonData(i).getMetals(),
-    //                            dataJsonObject.getJsonData(i).getVegetables()
-    //                    }
-    //            };
-    //        }
-    //
-    //        return new Object[][]{ {}, {}, {} }; //todo --> ?
-    //    }
+            for (int i = 1; i < 6; i++) {
+                return new Object[][]{
+                        {
+                                existingDataJsonObject.getJsonData(i).getSummary(),
+                                existingDataJsonObject.getJsonData(i).getElements(),
+                                existingDataJsonObject.getJsonData(i).getColor(),
+                                existingDataJsonObject.getJsonData(i).getMetals(),
+                                existingDataJsonObject.getJsonData(i).getVegetables()
+                        }
+                };
+            }
+
+            return new Object[][]{ {}, {}, {} };
+        }*/
 }

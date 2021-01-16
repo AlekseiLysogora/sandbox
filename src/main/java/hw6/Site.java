@@ -6,6 +6,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.*;
 
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import hw6.testscore.entities.User;
+import hw6.testscore.jsonreadewrite.ReadFromJson;
 import hw6.testscore.pages.Pages;
 import hw6.testscore.pages.HomePage;
 import hw6.testscore.pages.MetalsAndColorsPage;
@@ -67,13 +68,11 @@ public class Site {
         metalColorPage.pressSubmitBtn();
     }
 
-
     public static void assertResults() {
         softAssert = new SoftAssert();
-        //TODO Преобразовать строку из логАссерта в Гсон объект (ключ \ значение)
-        System.out.println("\n");
-        metalColorPage.assertResults();
-        System.out.println("\n");
+
+        System.err.println("\n*-*-* " + metalColorPage.assertResults2() + " *-*-*\n");
+
 
 
         softAssert.assertAll("All checks have been failing.");

@@ -8,7 +8,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.*;
 import com.epam.jdi.light.ui.html.elements.common.*;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 
-import hw6.testscore.jsonreader.WriteToJason;
+import hw6.testscore.jsonreadewrite.WriteToJason;
 
 import org.openqa.selenium.WebElement;
 
@@ -23,11 +23,8 @@ public class MetalsAndColorsPage extends WebPage {
     @UI("[name=custom_radio_even]")
     public RadioButtons summaryBottom;
 
-    @FindBy(id = "elements-checklist")
-    public List<Checkbox> checkboxes;
-
-    @FindBy(xpath = "//*[@type='checkbox']")
-    public Checklist elements;
+    @FindBy(css = "section[id=elements-checklist] input[type=checkbox]")
+    public Checklist elementChecklist;
 
     @JDropdown(
             root = "div[ui=dropdown]",
@@ -70,7 +67,15 @@ public class MetalsAndColorsPage extends WebPage {
     }
 
     public void selectElements(ArrayList<String> elements) {
-        System.out.println(elements.toString() + "******");
+        if (elements.size() == 2) {
+            elementChecklist.select(elements.get(0));
+            elementChecklist.select(elements.get(1));
+        } else {
+            elementChecklist.select(elements.get(0));
+            elementChecklist.select(elements.get(1));
+            elementChecklist.select(elements.get(2));
+            elementChecklist.select(elements.get(3));
+        }
     }
 
     public void selectColors(String color) {
@@ -83,7 +88,6 @@ public class MetalsAndColorsPage extends WebPage {
 
     public void selectVegetables(ArrayList<String> vegetable) {
         cleanUpVegetables();
-
         for (String veget:vegetable) {
             vegetables.select(veget);
         }
@@ -102,5 +106,10 @@ public class MetalsAndColorsPage extends WebPage {
         writeToJason = new WriteToJason();
         writeToJason.writeToJason(assertRow
                 .stream().map(WebElement::getText).collect(Collectors.toList()).get(0));
+    }
+
+    public String assertResults2() {
+        return assertRow
+                .stream().map(WebElement::getText).collect(Collectors.toList()).get(0);
     }
 }

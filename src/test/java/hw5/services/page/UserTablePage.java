@@ -1,10 +1,9 @@
 package hw5.services.page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import java.util.List;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserTablePage extends AbstractPage {
@@ -43,7 +42,61 @@ public class UserTablePage extends AbstractPage {
         }
         return false;
     }
-
+//
+//    public boolean getUser(String usernames) {
+//
+//        Queue<String> myPriorityQueue = new LinkedList<>();
+//
+//
+//        //add to the queue user's names from User page in the certain sequence
+//        for (WebElement element: nameList){
+//            myPriorityQueue.add(element.getText());
+//        }
+//
+//        if (myPriorityQueue.contains(usernames)){
+//            System.out.println(usernames + "");
+//        }
+//
+//        System.out.println(myPriorityQueue);
+//        while (!myPriorityQueue.isEmpty()) {
+//            System.out.println("*queue* " + myPriorityQueue.remove() + " **");
+//        }
+//
+//
+////        for (WebElement nameInList: nameList) {
+////            if (nameInList.getText().equals(usernames)) {
+////                System.out.println(
+////                        String //comment's hint (at the end of class's code)
+////                                .format("name in list == %s", nameInList.getText())
+////                );
+////                return true;
+////            }
+////        }
+//
+//        for (String nameForCompare: myPriorityQueue) {
+//            if (myPriorityQueue.contains(usernames)) {
+//                System.out.println(nameForCompare +"--nameForCompare");
+//                System.out.println(
+//                        String //comment's hint (at the end of class's code)
+//                                .format("name in list == %s", myPriorityQueue.element())
+//                );
+//                return true;
+//            }
+//        }
+//
+//
+////        for (WebElement nameInList: nameList) {
+////            if (nameInList.getText().equals(usernames)) {
+////                System.out.println(
+////                        String //comment's hint (at the end of class's code)
+////                                .format("name in list == %s", nameInList.getText())
+////                );
+////                return true;
+////            }
+////        }
+//        return false;
+//    }
+//
     public boolean getUser(String usernames) {
         for (WebElement nameInList: nameList) {
             if (nameInList.getText().equals(usernames)) {
@@ -83,10 +136,10 @@ public class UserTablePage extends AbstractPage {
     //Exercise 3:
 
     public void selectVipCheckbox(String vip, String name) {
-        for (WebElement e: selectCheckboxForSergeyIvan) {
-            if (e.getText().contains(name)) {
-                System.out.println(e.getText());
-                e.findElement(By.tagName("input")).click();
+        for (WebElement element: selectCheckboxForSergeyIvan) {
+            if (element.getText().contains(name)) {
+                System.out.println(element.getText());
+                element.findElement(By.tagName("input")).click();
                 //e.findElement(By.linkText(vip)).click();
             }
         }

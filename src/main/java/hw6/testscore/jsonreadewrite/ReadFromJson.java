@@ -1,8 +1,10 @@
-package hw6.testscore.jsonreader;
+package hw6.testscore.jsonreadewrite;
 
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class ReadFromJson {
     JsonParser parser = new JsonParser();
@@ -23,7 +25,6 @@ public class ReadFromJson {
         JsonObject object = rootObject.getAsJsonObject("data_1");
         return object;
     }
-
     public JsonObject getObjectData_2() {
         JsonObject object = rootObject.getAsJsonObject("data_2");
         return object;
@@ -41,8 +42,22 @@ public class ReadFromJson {
         return object;
     }
 
-    public JsonObject getObjectData(int counter) {
-        JsonObject object = rootObject.getAsJsonObject("data_" + counter);
+    /*public JsonObject getObjectData(int i) {
+        JsonObject object = rootObject.getAsJsonObject("data_" + i);
         return object;
+    }*/
+
+    public String getSummaryData(int i) {
+        JsonObject object = rootObject.getAsJsonObject("data_" + i);
+
+        JsonArray summary = object.getAsJsonArray("summary");
+
+        ArrayList<Integer> yourArray = new Gson()
+                .fromJson(summary, new TypeToken<ArrayList<Integer>>(){}.getType());
+
+        String result = String.valueOf(yourArray.get(0) + yourArray.get(1));
+
+        System.out.println(result);
+        return result;
     }
 }
