@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class JsonTest {
 
+    //Training class
+
     @Test
     public void testJson() {
         JsonParser parser = new JsonParser();
