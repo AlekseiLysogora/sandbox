@@ -3,6 +3,7 @@ package hw6.testscore.entities;
 import hw6.testscore.entities.dataentity.Elements;
 import hw6.testscore.utility.GetProperty;
 import lombok.*;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 

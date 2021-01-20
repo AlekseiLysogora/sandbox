@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class JsonTest {
 
+    //Training class
+
     @Test
     public void testJson() {
         JsonParser parser = new JsonParser();
@@ -21,7 +23,11 @@ public class JsonTest {
 
         JsonElement rootelement = parser.parse(reader);
 
+        System.err.println("rootelement\n" + rootelement);
+
         JsonObject rootObject = rootelement.getAsJsonObject();
+        System.err.println("rootObject\n" + rootObject);
+
         JsonObject object = rootObject.getAsJsonObject("data_1");
 
         JsonArray summary = object.getAsJsonArray("summary");

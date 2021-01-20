@@ -14,8 +14,17 @@ public class UserTablePage extends AbstractPage {
     @FindBy(xpath = "//tbody//div/span")
     private List<WebElement> heroesList;
 
+    @FindBy(xpath = "//select")
+    private List<WebElement> sixDropdowns;
+
     @FindBy(xpath = "//*[@type='checkbox']")
     private List<WebElement> sixCheckBoxes;
+
+    @FindBy(xpath = "//tbody//td[3]/a")
+    private List<WebElement> sixUsernames;
+
+    @FindBy(xpath = "//tbody//td[4]//span")
+    private List<WebElement> sixDescriprions;
 
     @FindBy(xpath = "//tbody//select")
     private List<WebElement> droplistElem;
@@ -28,6 +37,9 @@ public class UserTablePage extends AbstractPage {
 
     @FindBy(xpath = "//tbody//tr")
     protected List<WebElement> selectCheckboxForSergeyIvan;
+
+    @FindBy(xpath = "//tbody/tr/td[1]")
+    protected List<WebElement> numbers;
 
     public UserTablePage(WebDriver driver) {
         super(driver);
@@ -43,73 +55,82 @@ public class UserTablePage extends AbstractPage {
         return false;
     }
 
-    //
-    //    public boolean getUser(String usernames) {
-    //
-    //        Queue<String> myPriorityQueue = new LinkedList<>();
-    //
-    //
-    //        //add to the queue user's names from User page in the certain sequence
-    //        for (WebElement element: nameList){
-    //            myPriorityQueue.add(element.getText());
-    //        }
-    //
-    //        if (myPriorityQueue.contains(usernames)){
-    //            System.out.println(usernames + "");
-    //        }
-    //
-    //        System.out.println(myPriorityQueue);
-    //        while (!myPriorityQueue.isEmpty()) {
-    //            System.out.println("*queue* " + myPriorityQueue.remove() + " **");
-    //        }
-    //
-    //
-    ////        for (WebElement nameInList: nameList) {
-    ////            if (nameInList.getText().equals(usernames)) {
-    ////                System.out.println(
-    ////                        String //comment's hint (at the end of class's code)
-    ////                                .format("name in list == %s", nameInList.getText())
-    ////                );
-    ////                return true;
-    ////            }
-    ////        }
-    //
-    //        for (String nameForCompare: myPriorityQueue) {
-    //            if (myPriorityQueue.contains(usernames)) {
-    //                System.out.println(nameForCompare +"--nameForCompare");
-    //                System.out.println(
-    //                        String //comment's hint (at the end of class's code)
-    //                                .format("name in list == %s", myPriorityQueue.element())
-    //                );
-    //                return true;
-    //            }
-    //        }
-    //
-    //
-    ////        for (WebElement nameInList: nameList) {
-    ////            if (nameInList.getText().equals(usernames)) {
-    ////                System.out.println(
-    ////                        String //comment's hint (at the end of class's code)
-    ////                                .format("name in list == %s", nameInList.getText())
-    ////                );
-    ////                return true;
-    ////            }
-    ////        }
-    //        return false;
-    //    }
-    //
+    public List<String> getRomanRole() {
+        String[] resList = dropdowns.get(0).getText().split("\n");
+        List<String> listRole = new ArrayList<>();
+        for(int i = 0; i < resList.length; i++){
+            listRole.add(resList[i].trim());
+        }
+        return listRole;
+    }
+
+    public List<String> getNumber2() {
+        List<String> listName = new ArrayList<>();
+        for (int i = 0; i < numbers.size(); i++) {
+            listName.add(numbers.get(i).getText());
+        }
+        return listName;
+    }
 
     public boolean getUser(String usernames) {
-        for (WebElement nameInList: nameList) {
-            if (nameInList.getText().equals(usernames)) {
+        for (int i = 0; i < nameList.size(); i++) {
+            System.err.println("name from LIST" + nameList.get(i).getText());
+            if (nameList.get(i).getText().equals(usernames)) {
                 System.out.println(
                         String //comment's hint (at the end of class's code)
-                                .format("name in list == %s", nameInList.getText())
+                                .format("name in list == %s", nameList.get(i).getText())
                 );
                 return true;
             }
         }
         return false;
+    }
+
+    public List<String> getUser2() {
+        List<String> listName = new ArrayList<>();
+        for (int i = 0; i < nameList.size(); i++) {
+            listName.add(nameList.get(i).getText());
+        }
+        return listName;
+    }
+
+    public List<String> getDescription2() {
+        List<String> listDescription = new ArrayList<>();
+        for (int i = 0; i < heroesList.size(); i++) {
+            listDescription.add(heroesList.get(i).getText());
+        }
+        return listDescription;
+    }
+
+    public List<String> getDescription() {
+        List<String> listDescription = new ArrayList<>();
+
+        String Wolverine[] = heroesList.get(0).getText().split(" ");
+        String wolverine = Wolverine[0];
+
+        String SpiderMan[] = heroesList.get(1).getText().split(" ");
+        String spider = SpiderMan[0] + " " + SpiderMan[1];
+
+        String Punisher[] = heroesList.get(2).getText().split(" ");
+        String punisher = Punisher[0];
+
+        String Captain[] = heroesList.get(3).getText().split("\n");
+        String capitan = Captain[0] + " " + Captain[1];
+
+        String Cyclope[] = heroesList.get(4).getText().split("\n");
+        String cyclope = Cyclope[0] + " " + Cyclope[1];
+
+        String Hulk[] = heroesList.get(5).getText().split("\n");
+        String hulk = Hulk[0] + Hulk[1];
+
+        listDescription.add(wolverine);
+        listDescription.add(spider);
+        listDescription.add(punisher);
+        listDescription.add(capitan);
+        listDescription.add(cyclope);
+        listDescription.add(hulk);
+
+        return listDescription;
     }
 
     public boolean getDescription(String description) {
@@ -125,8 +146,20 @@ public class UserTablePage extends AbstractPage {
         return false;
     }
 
-    public String assertSixCheckboxes() {
+    public String getSixDropdowns() {
+        return String.valueOf(sixDropdowns.size());
+    }
+
+    public String getSixCheckboxes() {
         return String.valueOf(sixCheckBoxes.size());
+    }
+
+    public String getSixUsernames() {
+        return String.valueOf(sixUsernames.size());
+    }
+
+    public String getSixDescription() {
+        return String.valueOf(sixDescriprions.size());
     }
 
     public String assertDroplist() {
