@@ -23,7 +23,7 @@ public class DataProviderJson {
                         existingDataJsonObject.getJsonData_2().getColor(),
                         existingDataJsonObject.getJsonData_2().getMetals(),
                         existingDataJsonObject.getJsonData_2().getVegetables()
-                },
+                }/*,
                 {
                         existingDataJsonObject.getJsonData_3().getSummary(),
                         existingDataJsonObject.getJsonData_3().getElements(),
@@ -44,7 +44,7 @@ public class DataProviderJson {
                         existingDataJsonObject.getJsonData_5().getColor(),
                         existingDataJsonObject.getJsonData_5().getMetals(),
                         existingDataJsonObject.getJsonData_5().getVegetables()
-                }
+                }*/
         };
     }
     //Попытка избавиться от повторяющегося кода не увенчалась успехом

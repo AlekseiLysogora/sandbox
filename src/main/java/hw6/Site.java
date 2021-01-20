@@ -5,6 +5,7 @@ import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.*;
 
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import hw6.testscore.entities.ExistingDataJsonObject;
 import hw6.testscore.entities.User;
 import hw6.testscore.jsonreadewrite.ReadFromJson;
 import hw6.testscore.pages.Pages;
@@ -69,12 +70,15 @@ public class Site {
 
     public static void assertResults() {
 
-
-        //System.err.println("\n*-*-* " + metalColorPage.assertResults2() + " *-*-*\n");
-
         Assert.assertTrue(!metalColorPage.assertResults2().isEmpty(),
                 "Log row at the page is empty");
-        //JdiSite.homePage.benefits.is().size(EXPECTED_BENEFITS_COUNT);
+
+        String[] resList = metalColorPage.assertResults2().split("\n");
+        System.err.println(resList[0].trim());
+        System.err.println(resList[1].trim());
+        System.err.println(resList[2].trim());
+        System.err.println(resList[3].trim());
+        System.err.println(resList[4].trim());
     }
 
     private static void openSiteIfItClosed() {

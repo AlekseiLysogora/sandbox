@@ -40,11 +40,4 @@ public class ExistingDataJsonObject {
     public ExistingDataJsonObject getJsonData_5() {
         return gson.fromJson(readFromJson.getObjectData_5(), ExistingDataJsonObject.class);
     }
-
-    /*public ExistingDataJsonObject getJsonData(int i) {
-        for (int j = 1; j < 6; j++) {
-            return gson.fromJson(readFromJson.getObjectData(j), ExistingDataJsonObject.class);
-        }
-        return null;
-    }*/
 }
