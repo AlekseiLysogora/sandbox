@@ -1,4 +1,4 @@
-package hw6.core.jsonreadewrite;
+package hw6.core.jsonreader;
 
 import com.google.gson.*;
 import java.io.*;
@@ -22,19 +22,19 @@ public class ReadFromJson {
     public List<JsonObject> getObjectData() {
         List<JsonObject> listObjectData = new ArrayList<>();
 
-        JsonObject data_1 = rootObject.getAsJsonObject("data_1");
-        JsonObject data_2 = rootObject.getAsJsonObject("data_2");
-        JsonObject data_3 = rootObject.getAsJsonObject("data_3");
-        JsonObject data_4 = rootObject.getAsJsonObject("data_4");
-        JsonObject data_5 = rootObject.getAsJsonObject("data_5");
-        JsonObject data_6 = rootObject.getAsJsonObject("data_6");
+        JsonObject data1 = rootObject.getAsJsonObject("data_1");
+        JsonObject data2 = rootObject.getAsJsonObject("data_2");
+        JsonObject data3 = rootObject.getAsJsonObject("data_3");
+        JsonObject data4 = rootObject.getAsJsonObject("data_4");
+        JsonObject data5 = rootObject.getAsJsonObject("data_5");
+        JsonObject data6 = rootObject.getAsJsonObject("data_6");
 
-        listObjectData.add(data_1);
-        listObjectData.add(data_2);
-        listObjectData.add(data_3);
-        listObjectData.add(data_4);
-        listObjectData.add(data_5);
-        listObjectData.add(data_6);
+        listObjectData.add(data1);
+        listObjectData.add(data2);
+        listObjectData.add(data3);
+        listObjectData.add(data4);
+        listObjectData.add(data5);
+        listObjectData.add(data6);
 
         return listObjectData;
     }

@@ -61,13 +61,11 @@ public class MetalsAndColorsPage extends WebPage {
     @FindBy(xpath = "//*[@id='mCSB_2_container']/section[2]/div[2]/div")
     private List<WebElement> assertRow;
 
-    public void selectData1(Data1 data_1) {
-        summaryTop.select(String.valueOf(data_1.getSummary().getAsJsonArray().get(0)));
-        //summaryTop.select(summary.get(0));
-        summaryBottom.select(String.valueOf(data_1.getSummary().getAsJsonArray().get(1)));
-        //summaryBottom.select(summary.get(1));
+    public void selectData1(Data1 data1) {
+        summaryTop.select(String.valueOf(data1.getSummary().getAsJsonArray().get(0)));
+        summaryBottom.select(String.valueOf(data1.getSummary().getAsJsonArray().get(1)));
 
-        JsonArray arrayList = data_1.getElements().getAsJsonArray();
+        JsonArray arrayList = data1.getElements().getAsJsonArray();
         if (arrayList.size() == 2) {
             elementChecklist.select(String.valueOf(arrayList.get(0)));
             elementChecklist.select(String.valueOf(arrayList.get(1)));
@@ -78,23 +76,22 @@ public class MetalsAndColorsPage extends WebPage {
             elementChecklist.select(String.valueOf(arrayList.get(3)));
         }
 
-        colors.select(data_1.getColor());
-        metals.select(data_1.getMetals());
+        colors.select(data1.getColor());
+        metals.select(data1.getMetals());
 
         cleanUpVegetables();
-        JsonArray arrayListVegetables = data_1.getVegetables().getAsJsonArray();
+        JsonArray arrayListVegetables = data1.getVegetables().getAsJsonArray();
         for (JsonElement veget:arrayListVegetables) {
             vegetables.select(String.valueOf(veget));
         }
 
     }
 
-    public void selectData2(Data2 data_2) {
-        JsonArray arrayList = data_2.getElements().getAsJsonArray();
-        JsonArray arrayListVegetables = data_2.getVegetables().getAsJsonArray();
+    public void selectData2(Data2 data2) {
+        JsonArray arrayList = data2.getElements().getAsJsonArray();
 
-        summaryTop.select(String.valueOf(data_2.getSummary().getAsJsonArray().get(0)));
-        summaryBottom.select(String.valueOf(data_2.getSummary().getAsJsonArray().get(1)));
+        summaryTop.select(String.valueOf(data2.getSummary().getAsJsonArray().get(0)));
+        summaryBottom.select(String.valueOf(data2.getSummary().getAsJsonArray().get(1)));
 
         if (arrayList.size() == 2) {
             elementChecklist.select(String.valueOf(arrayList.get(0)));
@@ -106,9 +103,10 @@ public class MetalsAndColorsPage extends WebPage {
             elementChecklist.select(String.valueOf(arrayList.get(3)));
         }
 
-        colors.select(data_2.getColor());
-        metals.select(data_2.getMetals());
+        colors.select(data2.getColor());
+        metals.select(data2.getMetals());
 
+        JsonArray arrayListVegetables = data2.getVegetables().getAsJsonArray();
         cleanUpVegetables();
         for (JsonElement veget:arrayListVegetables) {
             vegetables.select(String.valueOf(veget));
@@ -116,13 +114,13 @@ public class MetalsAndColorsPage extends WebPage {
 
     }
 
-    public void selectData3(Data3 data_3) {
-        summaryTop.select(String.valueOf(data_3.getSummary().getAsJsonArray().get(0)));
+    public void selectData3(Data3 data3) {
+        summaryTop.select(String.valueOf(data3.getSummary().getAsJsonArray().get(0)));
         //summaryTop.select(summary.get(0));
-        summaryBottom.select(String.valueOf(data_3.getSummary().getAsJsonArray().get(1)));
+        summaryBottom.select(String.valueOf(data3.getSummary().getAsJsonArray().get(1)));
         //summaryBottom.select(summary.get(1));
 
-        JsonArray arrayList = data_3.getElements().getAsJsonArray();
+        JsonArray arrayList = data3.getElements().getAsJsonArray();
         if (arrayList.size() == 2) {
             elementChecklist.select(String.valueOf(arrayList.get(0)));
             elementChecklist.select(String.valueOf(arrayList.get(1)));
@@ -133,11 +131,11 @@ public class MetalsAndColorsPage extends WebPage {
             elementChecklist.select(String.valueOf(arrayList.get(3)));
         }
 
-        colors.select(data_3.getColor());
-        metals.select(data_3.getMetals());
+        colors.select(data3.getColor());
+        metals.select(data3.getMetals());
 
         cleanUpVegetables();
-        JsonArray arrayListVegetables = data_3.getVegetables().getAsJsonArray();
+        JsonArray arrayListVegetables = data3.getVegetables().getAsJsonArray();
         for (JsonElement veget:arrayListVegetables) {
             vegetables.select(String.valueOf(veget));
         }
@@ -172,13 +170,13 @@ public class MetalsAndColorsPage extends WebPage {
 
     }
 
-    public void selectData5(Data5 data_5) {
-        summaryTop.select(String.valueOf(data_5.getSummary().getAsJsonArray().get(0)));
+    public void selectData5(Data5 data5) {
+        summaryTop.select(String.valueOf(data5.getSummary().getAsJsonArray().get(0)));
         //summaryTop.select(summary.get(0));
-        summaryBottom.select(String.valueOf(data_5.getSummary().getAsJsonArray().get(1)));
+        summaryBottom.select(String.valueOf(data5.getSummary().getAsJsonArray().get(1)));
         //summaryBottom.select(summary.get(1));
 
-        JsonArray arrayList = data_5.getElements().getAsJsonArray();
+        JsonArray arrayList = data5.getElements().getAsJsonArray();
         if (arrayList.size() == 2) {
             elementChecklist.select(String.valueOf(arrayList.get(0)));
             elementChecklist.select(String.valueOf(arrayList.get(1)));
@@ -189,11 +187,11 @@ public class MetalsAndColorsPage extends WebPage {
             elementChecklist.select(String.valueOf(arrayList.get(3)));
         }
 
-        colors.select(data_5.getColor());
-        metals.select(data_5.getMetals());
+        colors.select(data5.getColor());
+        metals.select(data5.getMetals());
 
         cleanUpVegetables();
-        JsonArray arrayListVegetables = data_5.getVegetables().getAsJsonArray();
+        JsonArray arrayListVegetables = data5.getVegetables().getAsJsonArray();
         for (JsonElement veget:arrayListVegetables) {
             vegetables.select(String.valueOf(veget));
         }
@@ -202,10 +200,9 @@ public class MetalsAndColorsPage extends WebPage {
 
     public void selectSummary(JsonElement summary) {
         summaryTop.select(String.valueOf(summary.getAsJsonArray().get(0)));
-        //summaryTop.select(summary.get(0));
         summaryBottom.select(String.valueOf(summary.getAsJsonArray().get(1)));
-        //summaryBottom.select(summary.get(1));
     }
+
     public void selectSummary2(ArrayList<String> summary) {
         summaryTop.select(summary.get(0));
         summaryBottom.select(summary.get(1));
@@ -250,6 +247,7 @@ public class MetalsAndColorsPage extends WebPage {
             vegetables.select(veget);
         }
     }
+
     public void selectVegetables2(JsonElement vegetable) {
         cleanUpVegetables();
         JsonArray arrayList = vegetable.getAsJsonArray();

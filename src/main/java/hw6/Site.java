@@ -42,29 +42,30 @@ public class Site {
         homePage.getHeader().select(Pages.METALS_COLORS);
     }
 
-    public static void checkData1(Data1 data_1) {
-        metalColorPage.selectData1(data_1);
+    public static void checkData1(Data1 data1) {
+        metalColorPage.selectData1(data1);
     }
 
-    public static void checkData2(Data2 data_2) {
-        metalColorPage.selectData2(data_2);
+    public static void checkData2(Data2 data2) {
+        metalColorPage.selectData2(data2);
     }
 
-    public static void checkData3(Data3 data_3) {
-        metalColorPage.selectData3(data_3);
+    public static void checkData3(Data3 data3) {
+        metalColorPage.selectData3(data3);
     }
 
-    public static void checkData4(Data4 data_4) {
-        metalColorPage.selectData4(data_4);
+    public static void checkData4(Data4 data4) {
+        metalColorPage.selectData4(data4);
     }
 
-    public static void checkData5(Data5 data_5) {
-        metalColorPage.selectData5(data_5);
+    public static void checkData5(Data5 data5) {
+        metalColorPage.selectData5(data5);
     }
 
     public static void selectSummary(JsonElement summary) {
         metalColorPage.selectSummary(summary);
     }
+
     public static void selectSummary2(ArrayList<String> summary) {
         metalColorPage.selectSummary2(summary);
     }
@@ -88,6 +89,7 @@ public class Site {
     public static void selectVegetables(ArrayList<String> vegetable) {
         metalColorPage.selectVegetables(vegetable);
     }
+
     public static void selectVegetables2(JsonElement vegetable) {
         metalColorPage.selectVegetables2(vegetable);
     }

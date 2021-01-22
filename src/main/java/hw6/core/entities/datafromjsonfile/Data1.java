@@ -9,7 +9,8 @@ public class Data1 {
     protected String metals;
     protected JsonElement vegetables;
 
-    public Data1(JsonElement summary, JsonElement elements, String color, String metals, JsonElement vegetables) {
+    public Data1(JsonElement summary, JsonElement elements, String color,
+                 String metals, JsonElement vegetables) {
         this.summary = summary;
         this.elements = elements;
         this.color = color;

@@ -54,7 +54,7 @@ public class DataProviderFromJson {
 
 
     @DataProvider(name = "secondJsonData")
-    public Object[][] jsonData3() {
+    public Object[][] secondJsonData() {
         return new Object[][]{
                 {
                         getSum1(),
@@ -97,27 +97,27 @@ public class DataProviderFromJson {
 
 
     @DataProvider(name = "jsonData1")
-    public Object[][] jsonDataDATA() {
+    public Object[][] jsonData1() {
         return new Object[][]{{JsonObjectData.firstData()}};
     }
 
     @DataProvider(name = "jsonData2")
-    public Object[][] jsonDataDATA2() {
+    public Object[][] jsonData2() {
         return new Object[][]{{JsonObjectData.secondData()}};
     }
 
     @DataProvider(name = "jsonData3")
-    public Object[][] jsonDataDATA3() {
+    public Object[][] jsonData3() {
         return new Object[][]{{JsonObjectData.thirdata()}};
     }
 
     @DataProvider(name = "jsonData4")
-    public Object[][] jsonDataDATA4() {
+    public Object[][] jsonData4() {
         return new Object[][]{{JsonObjectData.fourthData()}};
     }
 
     @DataProvider(name = "jsonData5")
-    public Object[][] jsonDataDATA5() {
+    public Object[][] jsonData5() {
         return new Object[][]{{JsonObjectData.fifthData()}};
     }
 }

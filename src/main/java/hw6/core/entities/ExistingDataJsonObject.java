@@ -2,7 +2,7 @@ package hw6.core.entities;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import hw6.core.jsonreadewrite.ReadFromJson;
+import hw6.core.jsonreader.ReadFromJson;
 import lombok.*;
 
 import java.util.ArrayList;
