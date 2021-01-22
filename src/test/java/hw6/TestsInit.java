@@ -14,6 +14,7 @@ public interface TestsInit {
 
     @AfterSuite
     default void teardownTest() {
+
         WebDriverUtils.killAllSeleniumDrivers();
     }
 }

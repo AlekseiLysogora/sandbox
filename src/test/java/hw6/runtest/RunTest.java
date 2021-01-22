@@ -1,20 +1,16 @@
 package hw6.runtest;
 
-import com.google.gson.JsonElement;
-import hw6.Site;
 import hw6.TestsInit;
 import hw6.core.entities.datafromjsonfile.*;
 import hw6.core.utility.*;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-
 import static hw6.Site.*;
 
 public class RunTest extends AuxiliaryClass implements TestsInit {
 
-    @Test(dataProvider = "firstJsonData", dataProviderClass = DataProviderFromJson.class)
+    /*@Test(dataProvider = "firstJsonData", dataProviderClass = DataProviderFromJson.class)
     public void firstVariantTest(
             ArrayList<String> summary, ArrayList<String> elements,
             String color, String metal, ArrayList<String> vegetable
@@ -29,9 +25,9 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         selectVegetables(vegetable);
         pressSubmitBtn();
         assertResults();
-    }
+    }*/
 
-    @Test(dataProvider = "secondJsonData", dataProviderClass = DataProviderFromJson.class)
+    /*@Test(dataProvider = "secondJsonData", dataProviderClass = DataProviderFromJson.class)
     public void secondVariantTest(
             JsonElement summary, JsonElement elements,
             String color, String metal, JsonElement vegetable
@@ -46,7 +42,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         selectVegetables(vegetable);
         pressSubmitBtn();
         assertResults();
-    }
+    }*/
 
     @Test(dataProvider = "jsonData1", dataProviderClass = DataProviderFromJson.class)
     public void data1Test(Data1 data1) {
@@ -55,7 +51,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData1(data1);
         pressSubmitBtn();
-        assertResults();
+        assertData1(DATA1);
     }
 
     @Test(dataProvider = "jsonData2", dataProviderClass = DataProviderFromJson.class)
@@ -65,7 +61,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData2(data2);
         pressSubmitBtn();
-        assertResults();
+        assertData2(DATA2);
     }
 
     @Test(dataProvider = "jsonData3", dataProviderClass = DataProviderFromJson.class)
@@ -75,7 +71,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData3(data3);
         pressSubmitBtn();
-        assertResults();
+        assertData3(DATA3);
     }
 
     @Test(dataProvider = "jsonData4", dataProviderClass = DataProviderFromJson.class)
@@ -85,7 +81,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData4(data4);
         pressSubmitBtn();
-        assertResults();
+        assertData4(DATA4);
     }
 
     @Test(dataProvider = "jsonData5", dataProviderClass = DataProviderFromJson.class)
@@ -95,7 +91,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData5(data5);
         pressSubmitBtn();
-        assertResults();
+        assertData5(DATA5);
     }
 
 }

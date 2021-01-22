@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ReadFromJson {
     JsonParser parser = new JsonParser();
-    String pathToJsonFile = "hw6/properties/JDI_ex8_metalsColorsDataSet.json";
+    String pathToJsonFile = "hw6/testdata/JDI_ex8_metalsColorsDataSet.json";
 
     InputStream inputStream = getClass()
             .getClassLoader()

@@ -10,8 +10,7 @@ import com.google.gson.JsonElement;
 import hw6.core.entities.User;
 import hw6.core.entities.datafromjsonfile.*;
 import hw6.core.pages.*;
-
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 
@@ -26,6 +25,8 @@ public class Site {
 
     @Url("metals-colors.html")
     public static MetalsAndColorsPage metalColorPage;
+
+    protected static SoftAssert softAssert;
 
     public static void openSite() {
         homePage.open();
@@ -98,10 +99,54 @@ public class Site {
         metalColorPage.pressSubmitBtn();
     }
 
-    public static void assertResults() {
-        System.err.println(">>> " + metalColorPage.assertResults() + "<<<");
-        Assert.assertTrue(!metalColorPage.assertResults().isEmpty(),
-                "Log row at the page is empty");
+    public static void assertData1(String expectedData) {
+        String actual = metalColorPage.assertResults();
+
+        softAssert.assertEquals(actual, expectedData,
+                "\n>>> Incorrect DATA_1 <<<\n"
+        );
+
+        softAssert.assertAll();
+    }
+
+    public static void assertData2(String expectedData) {
+        String actual = metalColorPage.assertResults();
+
+        softAssert.assertEquals(actual, expectedData,
+                "\n>>> Incorrect DATA_2 <<<\n"
+        );
+
+        softAssert.assertAll();
+    }
+
+    public static void assertData3(String expectedData) {
+        String actual = metalColorPage.assertResults();
+
+        softAssert.assertEquals(actual, expectedData,
+                "\n>>> Incorrect DATA_3 <<<\n"
+        );
+
+        softAssert.assertAll();
+    }
+
+    public static void assertData4(String expectedData) {
+        String actual = metalColorPage.assertResults();
+
+        softAssert.assertEquals(actual, expectedData,
+                "\n>>> Incorrect DATA_4 <<<\n"
+        );
+
+        softAssert.assertAll();
+    }
+
+    public static void assertData5(String expectedData) {
+        String actual = metalColorPage.assertResults();
+
+        softAssert.assertEquals(actual, expectedData,
+                "\n>>> Incorrect DATA_5 <<<\n"
+        );
+
+        softAssert.assertAll();
     }
 
     private static void openSiteIfItClosed() {
