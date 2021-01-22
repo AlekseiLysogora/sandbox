@@ -51,7 +51,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData1(data1);
         pressSubmitBtn();
-        assertData1(DATA1);
+        assertData1(this.data1, softAssert);
     }
 
     @Test(dataProvider = "jsonData2", dataProviderClass = DataProviderFromJson.class)
@@ -61,7 +61,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData2(data2);
         pressSubmitBtn();
-        assertData2(DATA2);
+        assertData2(this.data2, softAssert);
     }
 
     @Test(dataProvider = "jsonData3", dataProviderClass = DataProviderFromJson.class)
@@ -71,7 +71,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData3(data3);
         pressSubmitBtn();
-        assertData3(DATA3);
+        assertData3(this.data3, softAssert);
     }
 
     @Test(dataProvider = "jsonData4", dataProviderClass = DataProviderFromJson.class)
@@ -81,7 +81,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData4(data4);
         pressSubmitBtn();
-        assertData4(DATA4);
+        assertData4(this.data4, softAssert);
     }
 
     @Test(dataProvider = "jsonData5", dataProviderClass = DataProviderFromJson.class)
@@ -91,7 +91,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openMetalColorPage();
         checkData5(data5);
         pressSubmitBtn();
-        assertData5(DATA5);
+        assertData5(this.data5, softAssert);
     }
 
 }

@@ -26,8 +26,6 @@ public class Site {
     @Url("metals-colors.html")
     public static MetalsAndColorsPage metalColorPage;
 
-    protected static SoftAssert softAssert;
-
     public static void openSite() {
         homePage.open();
     }
@@ -99,7 +97,7 @@ public class Site {
         metalColorPage.pressSubmitBtn();
     }
 
-    public static void assertData1(String expectedData) {
+    public static void assertData1(String expectedData, SoftAssert softAssert) {
         String actual = metalColorPage.assertResults();
 
         softAssert.assertEquals(actual, expectedData,
@@ -109,7 +107,7 @@ public class Site {
         softAssert.assertAll();
     }
 
-    public static void assertData2(String expectedData) {
+    public static void assertData2(String expectedData, SoftAssert softAssert) {
         String actual = metalColorPage.assertResults();
 
         softAssert.assertEquals(actual, expectedData,
@@ -119,7 +117,7 @@ public class Site {
         softAssert.assertAll();
     }
 
-    public static void assertData3(String expectedData) {
+    public static void assertData3(String expectedData, SoftAssert softAssert) {
         String actual = metalColorPage.assertResults();
 
         softAssert.assertEquals(actual, expectedData,
@@ -129,7 +127,7 @@ public class Site {
         softAssert.assertAll();
     }
 
-    public static void assertData4(String expectedData) {
+    public static void assertData4(String expectedData, SoftAssert softAssert) {
         String actual = metalColorPage.assertResults();
 
         softAssert.assertEquals(actual, expectedData,
@@ -139,7 +137,7 @@ public class Site {
         softAssert.assertAll();
     }
 
-    public static void assertData5(String expectedData) {
+    public static void assertData5(String expectedData, SoftAssert softAssert) {
         String actual = metalColorPage.assertResults();
 
         softAssert.assertEquals(actual, expectedData,
