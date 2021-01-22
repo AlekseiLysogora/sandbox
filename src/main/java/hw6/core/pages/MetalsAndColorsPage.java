@@ -10,6 +10,7 @@ import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+
 import hw6.core.entities.datafromjsonfile.*;
 
 import org.openqa.selenium.WebElement;
@@ -58,7 +59,7 @@ public class MetalsAndColorsPage extends WebPage {
     @UI("['Submit']")
     public Button submit;
 
-    @FindBy(xpath = "//*[@id='mCSB_2_container']/section[2]/div[2]/div")
+    @FindBy(xpath = "//section[2]/div[2]/div")
     private List<WebElement> assertRow;
 
     public void selectData1(Data1 data1) {
@@ -203,7 +204,7 @@ public class MetalsAndColorsPage extends WebPage {
         summaryBottom.select(String.valueOf(summary.getAsJsonArray().get(1)));
     }
 
-    public void selectSummary2(ArrayList<String> summary) {
+    public void selectSummary(ArrayList<String> summary) {
         summaryTop.select(summary.get(0));
         summaryBottom.select(summary.get(1));
     }
@@ -220,7 +221,7 @@ public class MetalsAndColorsPage extends WebPage {
         }
     }
 
-    public void selectElements2(JsonElement elements) {
+    public void selectElements(JsonElement elements) {
         JsonArray arrayList = elements.getAsJsonArray();
         if (arrayList.size() == 2) {
             elementChecklist.select(String.valueOf(elements.getAsJsonArray().get(0)));
@@ -248,7 +249,7 @@ public class MetalsAndColorsPage extends WebPage {
         }
     }
 
-    public void selectVegetables2(JsonElement vegetable) {
+    public void selectVegetables(JsonElement vegetable) {
         cleanUpVegetables();
         JsonArray arrayList = vegetable.getAsJsonArray();
         for (JsonElement veget:arrayList) {
@@ -265,7 +266,7 @@ public class MetalsAndColorsPage extends WebPage {
         submit.click();
     }
 
-    public String assertResults2() {
+    public String assertResults() {
         return assertRow
                 .stream().map(WebElement::getText).collect(Collectors.toList()).get(0);
     }

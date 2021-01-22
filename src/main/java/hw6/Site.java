@@ -66,16 +66,16 @@ public class Site {
         metalColorPage.selectSummary(summary);
     }
 
-    public static void selectSummary2(ArrayList<String> summary) {
-        metalColorPage.selectSummary2(summary);
+    public static void selectSummary(ArrayList<String> summary) {
+        metalColorPage.selectSummary(summary);
     }
 
     public static void selectElements(ArrayList<String> elements) {
         metalColorPage.selectElements(elements);
     }
 
-    public static void selectElements2(JsonElement elements) {
-        metalColorPage.selectElements2(elements);
+    public static void selectElements(JsonElement elements) {
+        metalColorPage.selectElements(elements);
     }
 
     public static void selectColors(String color) {
@@ -90,8 +90,8 @@ public class Site {
         metalColorPage.selectVegetables(vegetable);
     }
 
-    public static void selectVegetables2(JsonElement vegetable) {
-        metalColorPage.selectVegetables2(vegetable);
+    public static void selectVegetables(JsonElement vegetable) {
+        metalColorPage.selectVegetables(vegetable);
     }
 
     public static void pressSubmitBtn() {
@@ -99,7 +99,8 @@ public class Site {
     }
 
     public static void assertResults() {
-        Assert.assertTrue(!metalColorPage.assertResults2().isEmpty(),
+        System.out.println(metalColorPage.assertResults());
+        Assert.assertTrue(!metalColorPage.assertResults().isEmpty(),
                 "Log row at the page is empty");
     }
 

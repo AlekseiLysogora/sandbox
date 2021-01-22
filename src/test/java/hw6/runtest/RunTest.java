@@ -1,6 +1,7 @@
 package hw6.runtest;
 
 import com.google.gson.JsonElement;
+import hw6.Site;
 import hw6.TestsInit;
 import hw6.core.entities.datafromjsonfile.*;
 import hw6.core.utility.*;
@@ -21,7 +22,7 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         openSite();
         login(ROMAN);
         openMetalColorPage();
-        selectSummary2(summary);
+        selectSummary(summary);
         selectElements(elements);
         selectColors(color);
         selectMetals(metal);
@@ -39,10 +40,10 @@ public class RunTest extends AuxiliaryClass implements TestsInit {
         login(ROMAN);
         openMetalColorPage();
         selectSummary(summary);
-        selectElements2(elements);
+        Site.selectElements(elements);
         selectColors(color);
         selectMetals(metal);
-        selectVegetables2(vegetable);
+        selectVegetables(vegetable);
         pressSubmitBtn();
         assertResults();
     }
