@@ -99,6 +99,7 @@ public class Site {
     }
 
     public static void assertResults() {
+        System.err.println(">>> " + metalColorPage.assertResults() + "<<<");
         Assert.assertTrue(!metalColorPage.assertResults().isEmpty(),
                 "Log row at the page is empty");
     }
