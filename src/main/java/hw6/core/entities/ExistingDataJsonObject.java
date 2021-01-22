@@ -1,10 +1,12 @@
-package hw6.testscore.entities;
+package hw6.core.entities;
 
 import com.google.gson.Gson;
-import hw6.testscore.jsonreadewrite.ReadFromJson;
+import com.google.gson.JsonObject;
+import hw6.core.jsonreadewrite.ReadFromJson;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,8 +20,12 @@ public class ExistingDataJsonObject {
     protected String metals;
     protected ArrayList<String> vegetables;
 
-    transient ReadFromJson readFromJson = new ReadFromJson();
-    transient Gson gson = new Gson();
+    ReadFromJson readFromJson = new ReadFromJson();
+    Gson gson = new Gson();
+
+    public List<JsonObject> getJsonData() {
+        return readFromJson.getObjectData();
+    }
 
     public ExistingDataJsonObject getJsonData_1() {
         return gson.fromJson(readFromJson.getObjectData_1(), ExistingDataJsonObject.class);

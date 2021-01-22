@@ -1,6 +1,6 @@
-package hw6.testscore.utility;
+package hw6.core.utility;
 
-import hw6.testscore.entities.User;
+import hw6.core.entities.User;
 
 public class AuxiliaryClass {
     protected static User ROMAN = new User("Roman", "Jdi1234");

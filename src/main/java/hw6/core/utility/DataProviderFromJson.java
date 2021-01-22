@@ -1,13 +1,17 @@
-package hw6.testscore.utility;
+package hw6.core.utility;
 
-import hw6.testscore.entities.ExistingDataJsonObject;
+import hw6.core.entities.*;
+
 import org.testng.annotations.DataProvider;
 
-public class DataProviderJson {
+import static hw6.core.entities.JsonObjectData.*;
+
+public class DataProviderFromJson {
 
     private static ExistingDataJsonObject existingDataJsonObject = new ExistingDataJsonObject();
+    private JsonObjectData jsonObjectData = new JsonObjectData();
 
-    @DataProvider(name = "jsonData")
+    @DataProvider(name = "firstJsonData")
     public static Object[][] jsonData() {
         return new Object[][]{
                 {
@@ -23,7 +27,7 @@ public class DataProviderJson {
                         existingDataJsonObject.getJsonData_2().getColor(),
                         existingDataJsonObject.getJsonData_2().getMetals(),
                         existingDataJsonObject.getJsonData_2().getVegetables()
-                }/*,
+                },
                 {
                         existingDataJsonObject.getJsonData_3().getSummary(),
                         existingDataJsonObject.getJsonData_3().getElements(),
@@ -44,25 +48,76 @@ public class DataProviderJson {
                         existingDataJsonObject.getJsonData_5().getColor(),
                         existingDataJsonObject.getJsonData_5().getMetals(),
                         existingDataJsonObject.getJsonData_5().getVegetables()
-                }*/
+                }
         };
     }
-    //Попытка избавиться от повторяющегося кода не увенчалась успехом
-    //        @DataProvider(name = "jsonData2")
-    //        public static Object[][] jsonData2() {
-    //
-    //            for (int i = 1; i < 6; i++) {
-    //                return new Object[][]{
-    //                        {
-    //                                existingDataJsonObject.getJsonData(i).getSummary(),
-    //                                existingDataJsonObject.getJsonData(i).getElements(),
-    //                                existingDataJsonObject.getJsonData(i).getColor(),
-    //                                existingDataJsonObject.getJsonData(i).getMetals(),
-    //                                existingDataJsonObject.getJsonData(i).getVegetables()
-    //                        }
-    //                };
-    //            }
-    //
-    //            return new Object[][]{ {}, {}, {} };
-    //        }
+
+
+    @DataProvider(name = "secondJsonData")
+    public Object[][] jsonData3() {
+        return new Object[][]{
+                {
+                        getSum1(),
+                        getElements1(),
+                        getColor1(),
+                        getMetals1(),
+                        getVegetables1()
+                },
+                {
+                        getSum2(),
+                        getElements2(),
+                        getColor2(),
+                        getMetals2(),
+                        getVegetables2()
+                },
+                {
+                        getSum3(),
+                        getElements3(),
+                        getColor3(),
+                        getMetals3(),
+                        getVegetables3()
+                },
+                {
+                        getSum4(),
+                        getElements4(),
+                        getColor4(),
+                        getMetals4(),
+                        getVegetables4()
+                },
+                {
+                        getSum5(),
+                        getElements5(),
+                        getColor5(),
+                        getMetals5(),
+                        getVegetables5()
+                }
+        };
+
+    }
+
+
+    @DataProvider(name = "jsonData1")
+    public Object[][] jsonDataDATA() {
+        return new Object[][]{{JsonObjectData.firstData()}};
+    }
+
+    @DataProvider(name = "jsonData2")
+    public Object[][] jsonDataDATA2() {
+        return new Object[][]{{JsonObjectData.secondData()}};
+    }
+
+    @DataProvider(name = "jsonData3")
+    public Object[][] jsonDataDATA3() {
+        return new Object[][]{{JsonObjectData.thirdata()}};
+    }
+
+    @DataProvider(name = "jsonData4")
+    public Object[][] jsonDataDATA4() {
+        return new Object[][]{{JsonObjectData.fourthData()}};
+    }
+
+    @DataProvider(name = "jsonData5")
+    public Object[][] jsonDataDATA5() {
+        return new Object[][]{{JsonObjectData.fifthData()}};
+    }
 }

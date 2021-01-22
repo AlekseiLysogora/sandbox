@@ -1,4 +1,4 @@
-package hw6.testscore.pages;
+package hw6.core.pages;
 
 import lombok.*;
 

@@ -3,17 +3,15 @@ package hw6;
 import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.*;
-
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
-import hw6.testscore.entities.ExistingDataJsonObject;
-import hw6.testscore.entities.User;
-import hw6.testscore.jsonreadewrite.ReadFromJson;
-import hw6.testscore.pages.Pages;
-import hw6.testscore.pages.HomePage;
-import hw6.testscore.pages.MetalsAndColorsPage;
+
+import com.google.gson.JsonElement;
+
+import hw6.core.entities.User;
+import hw6.core.entities.datafromjsonfile.*;
+import hw6.core.pages.*;
 
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
 
@@ -44,12 +42,39 @@ public class Site {
         homePage.getHeader().select(Pages.METALS_COLORS);
     }
 
-    public static void selectSummary(ArrayList<String> summary) {
+    public static void checkData1(Data1 data_1) {
+        metalColorPage.selectData1(data_1);
+    }
+
+    public static void checkData2(Data2 data_2) {
+        metalColorPage.selectData2(data_2);
+    }
+
+    public static void checkData3(Data3 data_3) {
+        metalColorPage.selectData3(data_3);
+    }
+
+    public static void checkData4(Data4 data_4) {
+        metalColorPage.selectData4(data_4);
+    }
+
+    public static void checkData5(Data5 data_5) {
+        metalColorPage.selectData5(data_5);
+    }
+
+    public static void selectSummary(JsonElement summary) {
         metalColorPage.selectSummary(summary);
+    }
+    public static void selectSummary2(ArrayList<String> summary) {
+        metalColorPage.selectSummary2(summary);
     }
 
     public static void selectElements(ArrayList<String> elements) {
         metalColorPage.selectElements(elements);
+    }
+
+    public static void selectElements2(JsonElement elements) {
+        metalColorPage.selectElements2(elements);
     }
 
     public static void selectColors(String color) {
@@ -63,22 +88,17 @@ public class Site {
     public static void selectVegetables(ArrayList<String> vegetable) {
         metalColorPage.selectVegetables(vegetable);
     }
+    public static void selectVegetables2(JsonElement vegetable) {
+        metalColorPage.selectVegetables2(vegetable);
+    }
 
     public static void pressSubmitBtn() {
         metalColorPage.pressSubmitBtn();
     }
 
     public static void assertResults() {
-
         Assert.assertTrue(!metalColorPage.assertResults2().isEmpty(),
                 "Log row at the page is empty");
-
-        String[] resList = metalColorPage.assertResults2().split("\n");
-        System.err.println(resList[0].trim());
-        System.err.println(resList[1].trim());
-        System.err.println(resList[2].trim());
-        System.err.println(resList[3].trim());
-        System.err.println(resList[4].trim());
     }
 
     private static void openSiteIfItClosed() {

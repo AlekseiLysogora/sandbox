@@ -1,4 +1,4 @@
-package hw6.testscore.entities;
+package hw6.core.entities;
 
 import com.epam.jdi.tools.DataClass;
 
