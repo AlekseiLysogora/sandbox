@@ -8,6 +8,10 @@ import org.testng.annotations.Test;
 
 import static hw6.Site.*;
 
+/*
+Create new branch
+ */
+
 public class RunTest extends AuxiliaryClass implements TestsInit {
 
     /*@Test(dataProvider = "firstJsonData", dataProviderClass = DataProviderFromJson.class)
